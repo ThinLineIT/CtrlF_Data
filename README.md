@@ -1,7 +1,7 @@
 # CSWIKI_Data
 It is a repository for organizing the knowledge related computer science.
 
-[CS_WIKI](www.naver.com)
+You can get the bunch of knowledge more easily on [CS_WIKI](www.naver.com)
 
 # Chapter
 1. OS
