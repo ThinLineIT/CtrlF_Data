@@ -16,10 +16,12 @@ email: `thinlineIT@gmail.com`
 1. AI
 1. Network
 1. Android
+1. interview
 1. ETC
     1. git
-    2. Development Knowledge
-    3. ...
+    1. Development Knowledge
+    1. ...
+
 
 # How to contribute
 [Korean]
@@ -48,3 +50,4 @@ email: `thinlineIT@gmail.com`
 1. Merge by manager
 
 # Contributor
+Show commit count 
