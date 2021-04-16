@@ -129,7 +129,7 @@ public enum ExampleClass {
 &nbsp;&nbsp;  &nbsp;&nbsp;  INSTANCE가 생성될 때, 멀티스레드로 부터 안전하고 단 한번의 인스턴스 생성을 보장  
 &nbsp;&nbsp;  &nbsp;&nbsp;  또한, 사용이 간편하며 enum value는 전역에서 접근 가능
 
-###4) 다른 언어에서의 구현
+### 4) 다른 언어에서의 구현
 
     1. Python : https://wikidocs.net/3693
     2. PHP : https://stackoverflow.com/questions/203336/creating-the-singleton-design-pattern-in-php5/203359#203359
