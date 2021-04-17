@@ -50,9 +50,9 @@
 
 |&nbsp;|*Creational(생성) patterns*|*Behavioral(행동) patterns*|*Structural(구조) patterns*|
 |:---:|:---:|:---:|:---:|
-|*Class->*|Factory Method|Interpreter|Adapter(class)|
+|*Class*|Factory Method|Interpreter|Adapter(class)|
 |&nbsp;|&nbsp;|Template Method|&nbsp;|
-|*Object->*|Builder|Mediator|Adapter(object)|
+|*Object*|Builder|Mediator|Adapter(object)|
 |&nbsp;|Abstract Factory|Chain of Responsibility|Facade|
 |&nbsp;|Singleton|Command|Protection Proxy|
 |&nbsp;|Prototype|Visitor|Composite|
@@ -65,7 +65,7 @@
 ## 디자인 패턴 사용법
 다음은 GoF 책에 적혀있는 디자인 패턴 사용법이다.  
 단순한 가이드이므로 참고용으로 보고 패턴을 공부하면서 자신에게 맞는 방법을 개발하는 것을 추천한다.
-
+    
     1. 개괄적으로 한번 패턴을 훑는다 
        : 패턴이 해당 문제에 적합한지를 따져보기 위해 적용(Applicability)와 결론(Consequences) 부분에 특별한 주의를 갖는다.
     
@@ -92,7 +92,7 @@
     
     7. 패턴에 있는 책임성과 협업관계를 수행하는 오퍼레이션을 구현한다 
        : 구현(implementation) 부분은 구현에 대한 가이드로 힌트를 제공한다. 예제 코드에 있는 사례 역시 도움이 될 수 있다.
-    
+   
 ## 디자인 패턴을 고르는 방법
 
     1. 패턴이 어떻게 문제를 해결하는지 파악한다.
