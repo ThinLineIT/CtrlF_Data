@@ -45,57 +45,56 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
         두 번째 실행 -> [1,5,6,8]
         세 번째 실행 -> 변화 없음
 ### 구현 (파이썬)
-    ''' python
-    def selection_sort(data):
-    for stand in range(len(data) - 1):
-        lowest = stand
-        for index in range(stand + 1, len(data)):
-            if data[lowest] > data[index]:
-                lowest = index
-        data[lowest], data[stand] = data[stand], data[lowest]
-    return data
-    '''
+```python
+def selection_sort(data):
+for stand in range(len(data) - 1):
+    lowest = stand
+    for index in range(stand + 1, len(data)):
+        if data[lowest] > data[index]:
+            lowest = index
+    data[lowest], data[stand] = data[stand], data[lowest]
+return data
+```
 ### 구현 (C 언어)
-    ''' c
-    void selectionSort(int *list, const int n)
-    {
-    int i, j, indexMin, temp;
+```c
+void selectionSort(int *list, const int n)
+{
+int i, j, indexMin, temp;
 
-    for (i = 0; i < n - 1; i++)
+for (i = 0; i < n - 1; i++)
+{
+    indexMin = i;
+    for (j = i + 1; j < n; j++)
     {
-        indexMin = i;
-        for (j = i + 1; j < n; j++)
+        if (list[j] < list[indexMin])
         {
-            if (list[j] < list[indexMin])
-            {
-                indexMin = j;
-            }
+            indexMin = j;
         }
-        temp = list[indexMin];
-        list[indexMin] = list[i];
-        list[i] = temp;
-        }
-    } 
-    '''
+    }
+    temp = list[indexMin];
+    list[indexMin] = list[i];
+    list[i] = temp;
+    }
+} 
+```
 ## 구현 (JAVA)
-    '''{.java}
-    void selectionSort(int[] list) {
-    int indexMin, temp;
+```{.java}
+void selectionSort(int[] list) {
+int indexMin, temp;
 
-    for (int i = 0; i < list.length - 1; i++) {
-        indexMin = i;
-        for (int j = i + 1; j < list.length; j++) {
-            if (list[j] < list[indexMin]) {
-                indexMin = j;
-            }
+for (int i = 0; i < list.length - 1; i++) {
+    indexMin = i;
+    for (int j = i + 1; j < list.length; j++) {
+        if (list[j] < list[indexMin]) {
+            indexMin = j;
         }
-        temp = list[indexMin];
-        list[indexMin] = list[i];
-        list[i] = temp;
     }
-    }
-    '''
-
+    temp = list[indexMin];
+    list[indexMin] = list[i];
+    list[i] = temp;
+}
+}
+```
 ---
 ## Reference
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
