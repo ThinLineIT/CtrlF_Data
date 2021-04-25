@@ -78,7 +78,7 @@ for (i = 0; i < n - 1; i++)
 } 
 ```
 ## 구현 (JAVA)
-```{.java}
+```java
 void selectionSort(int[] list) {
 int indexMin, temp;
 
@@ -92,7 +92,7 @@ for (int i = 0; i < list.length - 1; i++) {
     temp = list[indexMin];
     list[indexMin] = list[i];
     list[i] = temp;
-}
+    }
 }
 ```
 ---
