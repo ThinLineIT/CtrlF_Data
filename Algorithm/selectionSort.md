@@ -1,5 +1,3 @@
-
-
 # 선택 정렬(selection sort)
 <!--Table of Contents-->
 - 선택정렬 이란?
@@ -47,6 +45,7 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
         두 번째 실행 -> [1,5,6,8]
         세 번째 실행 -> 변화 없음
 ### 구현 (파이썬)
+    ''' python
     def selection_sort(data):
     for stand in range(len(data) - 1):
         lowest = stand
@@ -55,7 +54,9 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
                 lowest = index
         data[lowest], data[stand] = data[stand], data[lowest]
     return data
+    '''
 ### 구현 (C 언어)
+    ''' c
     void selectionSort(int *list, const int n)
     {
     int i, j, indexMin, temp;
@@ -74,8 +75,10 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
         list[indexMin] = list[i];
         list[i] = temp;
         }
-    }
+    } 
+    '''
 ## 구현 (JAVA)
+    '''{.java}
     void selectionSort(int[] list) {
     int indexMin, temp;
 
@@ -91,9 +94,9 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
         list[i] = temp;
     }
     }
+    '''
 
 ---
 ## Reference
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 - [선택 정렬](https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC)
-- 
