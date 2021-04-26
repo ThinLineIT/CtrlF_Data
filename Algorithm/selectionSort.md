@@ -47,52 +47,52 @@ By <a href="https://en.wikipedia.org/wiki/User:Joestape89" class="extiw" title="
 ### 구현 (파이썬)
 ```python
 def selection_sort(data):
-for stand in range(len(data) - 1):
-    lowest = stand
-    for index in range(stand + 1, len(data)):
-        if data[lowest] > data[index]:
-            lowest = index
-    data[lowest], data[stand] = data[stand], data[lowest]
-return data
+  for stand in range(len(data) - 1):
+      lowest = stand
+      for index in range(stand + 1, len(data)):
+          if data[lowest] > data[index]:
+              lowest = index
+      data[lowest], data[stand] = data[stand], data[lowest]
+  return data
 ```
 ### 구현 (C 언어)
 ```c
 void selectionSort(int *list, const int n)
 {
-int i, j, indexMin, temp;
-
-for (i = 0; i < n - 1; i++)
-{
-    indexMin = i;
-    for (j = i + 1; j < n; j++)
-    {
-        if (list[j] < list[indexMin])
-        {
-            indexMin = j;
-        }
-    }
-    temp = list[indexMin];
-    list[indexMin] = list[i];
-    list[i] = temp;
+  int i, j, indexMin, temp;
+  
+  for (i = 0; i < n - 1; i++)
+  {
+      indexMin = i;
+      for (j = i + 1; j < n; j++)
+      {
+          if (list[j] < list[indexMin])
+          {
+              indexMin = j;
+          }
+      }
+      temp = list[indexMin];
+      list[indexMin] = list[i];
+      list[i] = temp;
     }
 } 
 ```
 ## 구현 (JAVA)
 ```java
 void selectionSort(int[] list) {
-int indexMin, temp;
-
-for (int i = 0; i < list.length - 1; i++) {
-    indexMin = i;
-    for (int j = i + 1; j < list.length; j++) {
-        if (list[j] < list[indexMin]) {
-            indexMin = j;
-        }
-    }
-    temp = list[indexMin];
-    list[indexMin] = list[i];
-    list[i] = temp;
-    }
+  int indexMin, temp;
+  
+  for (int i = 0; i < list.length - 1; i++) {
+      indexMin = i;
+      for (int j = i + 1; j < list.length; j++) {
+          if (list[j] < list[indexMin]) {
+              indexMin = j;
+          }
+      }
+      temp = list[indexMin];
+      list[indexMin] = list[i];
+      list[i] = temp;
+  }
 }
 ```
 ---
