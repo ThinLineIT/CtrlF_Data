@@ -64,7 +64,3 @@ Spanning Tree 中 가중치의 합이 가장 최소인 것
 ## Minial Spanning Tree의 구현 알고리즘
 - Prim's Algorithm
 - Kruskal's Algorithm
-
----
-Reference
-- X
