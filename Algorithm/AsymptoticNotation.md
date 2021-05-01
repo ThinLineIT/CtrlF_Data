@@ -148,6 +148,6 @@ Theta 표기법은 가격 상승률이 0% 에서 30%까지 상승가능 하다 �
 
 ---
 ## Reference
-- [Reference_Site1](https://ko.wikipedia.org/wiki/%EC%A0%90%EA%B7%BC_%ED%91%9C%EA%B8%B0%EB%B2%95) - 점근표기법 이란?
+- [wikipedia](https://ko.wikipedia.org/wiki/%EC%A0%90%EA%B7%BC_%ED%91%9C%EA%B8%B0%EB%B2%95) - 점근표기법 이란?
 
-- [Reference_Site2](https://noahlogs.tistory.com/27) - Big O표기법 이란?
+- [noahlogs](https://noahlogs.tistory.com/27) - Big O표기법 이란?
