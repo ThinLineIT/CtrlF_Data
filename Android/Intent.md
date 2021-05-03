@@ -43,7 +43,7 @@
 
   ### Intent-filter 란 ?
       앱의 manifest 파일에 들어있는 표현으로 해당 구성요소가 수신하고자 하는 인텐트의 유형을 나타낸다.
-      인텐티 픨터를 선언하지 않는 경우, 명시적 인텐트로만 시작할 수 있다. 
+      인텐트 필터를 선언하지 않는 경우, 명시적 인텐트로만 시작할 수 있다. 
 
  ※ 앱의 보안을 보장하려면 Service를 시작할 때는 항상 명시적 인텐트만 사용하고 service에 대한  
 인텐트 필터는 선언하지 마세요! Android 5.0(API 레벨 21)부터 시스템은 개발자가 암시적 인텐트로  
@@ -70,10 +70,10 @@ bindService()를 호출하면 예외를 발생시킵니다.
 5. 엑스트라
    - 요청된 작업을 수행하는데 필요한 추가 정보가 담긴 키-값 쌍
    - 다양한 putExtra() 메서드로 엑스트라 데이터 추가 가능하며  
-     모든 엑스트라 데이터를 포함한 Bundle 객체를 만든 다음 Bundle을 Intent에 putExtras()로 삽입할 수도 있다. 
+     모든 엑스트라 데이터를 포함한 Bundle 객체를 만든 다음 Bundle을 Intent에 putExtras()로 삽입 
 6. 플래그
    - Intent 클래스에서 정의되며 인텐트에 대한 메타데이터와 같은 기능
-     ex) Android 시스템에 액티비티를 시작할 방법에 대한 지침을 줄 수도 있고 시작한 다음 어떻게 처리해야하는지도 알려줄 수 있다.
+     ex) Android 시스템에 액티비티를 시작할 방법에 대한 지침을 줄 수도 있고 시작한 다음 어떻게 처리해야하는지도 알려줌
 ---
 ## Reference
 - [Android developer - Intent and Intent Filters](https://developer.android.com/guide/components/intents-filterswww.google.com)
