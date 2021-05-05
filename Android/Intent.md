@@ -8,6 +8,7 @@
     - 인텐트 필터란?
 - 인텐트 빌드 
     - 인텐트에 포함된 기본 사항
+    - 예시 
 
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
 ## You can answer
@@ -72,8 +73,9 @@ bindService()를 호출하면 예외를 발생시킵니다.
    - 다양한 putExtra() 메서드로 엑스트라 데이터 추가 가능하며  
      모든 엑스트라 데이터를 포함한 Bundle 객체를 만든 다음 Bundle을 Intent에 putExtras()로 삽입 
 6. 플래그
-   - Intent 클래스에서 정의되며 인텐트에 대한 메타데이터와 같은 기능
+   - Intent 클래스에서 정의되며 인텐트에 대한 메타데이터와 같은 기능  
      ex) Android 시스템에 액티비티를 시작할 방법에 대한 지침을 줄 수도 있고 시작한 다음 어떻게 처리해야하는지도 알려줌
+     
 ---
 ## Reference
-- [Android developer - Intent and Intent Filters](https://developer.android.com/guide/components/intents-filterswww.google.com)
+- [Android developer - Intent and Intent Filters](https://developer.android.com/guide/components/intents-filters)
