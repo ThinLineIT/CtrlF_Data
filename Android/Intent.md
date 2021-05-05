@@ -76,6 +76,38 @@ bindService()를 호출하면 예외를 발생시킵니다.
    - Intent 클래스에서 정의되며 인텐트에 대한 메타데이터와 같은 기능  
      ex) Android 시스템에 액티비티를 시작할 방법에 대한 지침을 줄 수도 있고 시작한 다음 어떻게 처리해야하는지도 알려줌
      
+### 예시 
+'''kotlin  
+//인텐트 생성
+val intent = Intent()
+// setClass()  
+intent.setClass(this,SubActivity.class)
+//setAction()
+intent.setAction(Intent.ACTION_VIEW)
+//addCategory() 생략가능
+intent.addCategory(Intent.CATEGORY_DEFAULT)
+startActivity(intent)
+'''
+
+* 암시적 인텐트 예시   
+'''kotlin  
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ThinLineIT"))  
+    startActivity(intent)  
+'''
+
+* 명시적 인텐트 예시  
+'''kotlin  
+    // SubActivity에 엑스트라 추가하여 실행  
+    val intent = Intent(this, SubActivity::class.java)  
+    .putExtra("key", "data")  
+     startActivity(intent)
+    
+    // 실행된 SubActivity로부터 결과를 받고 싶다면 startActivityForResult()  
+    val REQUEST_CODE = 100  
+    val intent = Intent(this, SubActivity::class.java)
+    .putExtra("Data", "Hello World!")
+    startActivityForResult(intent,REQUEST_CODE)  
+    '''
 ---
 ## Reference
 - [Android developer - Intent and Intent Filters](https://developer.android.com/guide/components/intents-filters)
