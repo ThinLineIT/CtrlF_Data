@@ -77,6 +77,13 @@ bindService()를 호출하면 예외를 발생시킵니다.
      ex) Android 시스템에 액티비티를 시작할 방법에 대한 지침을 줄 수도 있고 시작한 다음 어떻게 처리해야하는지도 알려줌
      
 ### 예시
+* 암시적 인텐트 예시   
+```kotlin   
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.setData(Uri.parse("https://github.com/ThinLineIT"))  
+    startActivity(intent)  
+```
+
 * 명시적 인텐트 예시  
 ```kotlin  
     // SubActivity에 엑스트라 추가하여 실행  
@@ -96,12 +103,6 @@ bindService()를 호출하면 예외를 발생시킵니다.
     }
     
     startActivityForResult(intent,REQUEST_CODE)  
-```
-* 암시적 인텐트 예시
-```kotlin  
-    //인터넷 웹페이지 열기 (Uri 파싱)
-    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ThinLineIT"))  
-    startActivity(intent)  
 ```
 ---
 ## Reference
