@@ -17,8 +17,12 @@ Activity 클래스는 여러 콜백을 제공하는데
 
 ### 생명 주기 콜백 메서드
 * Activity 클래스는 onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy() 와 같이 6가지 콜백 메서드를 제공한다.
-![lifecylce](https://developer.android.com/guide/components/images/activity_lifecycle.png?hl=ko)
+![lifecylce](https://developer.android.com/guide/components/images/activity_lifecycle.png?hl=ko)  
+  [Activity의 생명주기]
   
+![state](https://camo.githubusercontent.com/ecceb23622438ed1883ff03de5c63cea022d1c7f274b329bd1b777ea5ebf653f/68747470733a2f2f646576656c6f7065722e616e64726f69642e636f6d2f696d616765732f746f7069632f6c69627261726965732f6172636869746563747572652f6c6966656379636c652d7374617465732e737667)  
+  [Activity 생명주기에 따른 상태]   
+<br>
 #### onCreate() 
 - 이 콜백은 시스템이 액티비티를 생성할 때 실행되는 것으로 필수적으로 구현해야한다.  
 - 액티비티가 생성되면 Created 상태가 되고 startup 로직을 실행한다.  
