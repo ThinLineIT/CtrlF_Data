@@ -2,12 +2,13 @@
 <!--Table of Contents-->
 - 백그라운드 스레드
 - Handler
+  - 예시
 - Looper
+    - 예시
 
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
 ## You can answer
-- Handler의 역할
-- Looper의 역할
+- 안드로이드에서 Handler 와 Looper의 역할
 
 <!--Contents-->
 
