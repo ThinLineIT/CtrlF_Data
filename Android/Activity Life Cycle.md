@@ -1,6 +1,6 @@
 # 액티비티 생명주기 (life-cycle)
 <!--Table of Contents-->
-- Activity life-cycle이란?
+- Activity life-cycle 란?
     - 생명 주기 콜백 메서드
 
 ## You can answer
@@ -16,7 +16,7 @@ Activity 클래스는 여러 콜백을 제공하는데
 즉, 각 콜백은 앱이 더욱 안정적으로 기능할 수 있도록 하기위해 상태 변화에 적합한 특정 작업을 실행할 수 있도록 한다.
 
 ### 생명 주기 콜백 메서드
-* Activity 클래스는 onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy() 와 같이 6가지 콜백 메서드를 제공한다.
+* Activity 클래스는 `onCreate()`, `onStart()`, `onResume()`, `onPause()`, `onStop()`, `onDestroy()` 와 같이 6가지 콜백 메서드를 제공한다.
 ![lifecylce](https://developer.android.com/guide/components/images/activity_lifecycle.png?hl=ko)  
   [Activity의 생명주기]
   
