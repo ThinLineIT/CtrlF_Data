@@ -1,5 +1,7 @@
 # Huffman Code
 ## 목차(Contents)
+- Huffman Code란?!
+- Huffman Code 알고리즘 동작
 
 
 ## You can answer
@@ -64,12 +66,35 @@ ex) 4,5단계의 그림을 참조하여 110이 주어졌을 때,
 - 해당 노드에 저장된 문자 : c
 
 ## BONUS
-- Huffman Code 시간복잡도
-    최소 값 추철에 logN의 시간을 소모한다. N개의 원소를 이용해 트리를 만들기 때문에 __O(NlogN)__ 의 시간 복잡도를 가진다.
 
+### Huffman Code pseudo코드 예시
+
+    typedef struct node{
+        struct node *left; // left child
+        struct node *right; // right child
+    }node
+
+    *node huffman(int n, node PQ){
+        node *a, *b, *r;
+
+        for(int i = 1; i<n ; i++){
+            remove(PQ,a); // 정렬된 노드 PQ에서 a를 제거.
+            remove(PQ,b); // 정렬된 노드 PQ에서 b를 제거.
+            r -> left = a; // 노드 r에 왼쪽자식으로 a, 오른쪽 자식으로 b를 할당.(a<b)
+            r -> right = b;
+            r -> freq = a ->freq + b -> freq; //a와b의 빈도수를 r의 빈도수에 저장.
+            insert(PQ,r); // 새로 생성된 r노드를 PQ에 삽입.
+        }
+        remove(PQ,r); //마지막으로 생성된 r을 PQ안에서 제거해줌(메모리 낭비 때문에)
+        return r;
+    }
+
+### 시간복잡도
+우선순위 큐로 heap이 사용된다면, 초기 힙를 구성하는데 O(n) 시간이 걸리고, 최솟값 제거 및 새로운 원소의 삽입등 heap 연산은 O(logn)시간이 걸린다. 반복문은 n-1번 수행되기 때문에 알고리즘 전체 수행 시간은 O(nlogn)이 된다.
 
 ---
 ## Reference
 - [wkdtjsgur100](https://wkdtjsgur100.github.io/huffman/)
 
 - [HuffmanCode개념](https://ko.wikipedia.org/wiki/%ED%97%88%ED%94%84%EB%A8%BC_%EB%B6%80%ED%98%B8%ED%99%94)
+- [시간복잡도](https://haamjamie.tistory.com/5)
