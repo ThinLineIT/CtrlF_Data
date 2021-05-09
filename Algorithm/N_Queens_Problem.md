@@ -59,12 +59,15 @@
 ## Pseudo-code
 ### queens
 ```
+※Top-level call queens(1);
+Vector<> column;
+
 public static void queens(index i) {
     index j;
 
     if (promising(i)) {
-        if (i == n) // i = N 이면 N Queens Problem 조건 성립 -> 결과 출력
-            print : N element of result set
+        if (i == n)
+            print( column[1] ... column[n] );   // 결과 출력
         else {
             for (j = 1; j <= n; j++) {
                 column[i + 1] = j;
