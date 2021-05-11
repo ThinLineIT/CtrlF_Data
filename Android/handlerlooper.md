@@ -37,26 +37,50 @@
 - Handler는 Thread 당 반드시 하나만 생성할 필요는 없다. 기능에 따라 여러 handler로 나눠 처리하는 것이 좋다. 
 
 ### 예시
+API level 30부터 Handler() , Handler(Handle.Callback)이 deprecated 되었다.
+따라서 아래의 두 가지 방법으로 Handler를 사용한다.
+
+solution 1 : Executor를 사용한다.
 ```kotlin
-var mHandler = Handler(Handler.Callback{
-    msg->
-    //doing
-    false 
-})
+// Execute code in background thread and update UI on the main thread
+// Create an executor that executes tasks in the main thread. 
+val mainExecutor: Executor = ContextCompat.getMainExecutor(this)
 
-mHandler.sendMessage(msg)
+// Create an executor that executes tasks in a background thread.
+val backgroundExecutor = Executors.newSingleThreadScheduledExecutor()
 
-var mRunnable = Runnable{
-    //doing
+// Execute a task in the background thread.
+backgroundExecutor.execute {
+  // Your code logic goes here.
+
+  // Update UI on the main thread
+  mainExecutor.execute {
+    // You code logic goes here.
+  }
 }
 
-var mHandler2 = Handler()
-mHandler2.post(mRunnable)
 ```
--> message의 경우 Handler에서 MessageQueue에 전달 후 전달한 Handler의 handleMessage에서 받아서 동작한다.
-Runnable의 경우도 handler를 통해 messageQueue에 전달 후 차례가 되면 Runnable의 run()에서 동작한다.
+solution 2 : 생성자에 Looper를 명시적으로 지정한다. 
+```kotlin
+//Execute code in a background thread and update UI on the main thread.
+// Create a handler to execute code in the main thread
+val mainHandler = Handler(Looper.getMainLooper())
 
+// Create a background thread that has a Looper
+val handlerThread = HandlerThread("HandlerThread")
+handlerThread.start()
 
+// Create a handler to execute in the background thread
+val backgroundHandler = Handler(handlerThread.looper, Handler.Callback {
+    // Your code logic goes here.
+
+    // Update UI on the main thread.
+    mainHandler.post {
+        
+    }
+    true
+})
+```
 ## Looper
 - Looper는 Thread에서 무한 루프로 돌며 자신이 속한 Thread의 Messagequeue에 message나 runnable이 들어오면
   선입선출로 Handler에 전달하는 역할을 한다.
@@ -86,5 +110,5 @@ class LooperThread extends Thread {
 ---
 ## Reference
 - [안드로이드 Thread, Handler, Looper](https://jeongupark-study-house.tistory.com/54)
-
+- [How to use Handler](https://stackoverflow.com/questions/61023968/what-do-i-use-now-that-handler-is-deprecated)
 
