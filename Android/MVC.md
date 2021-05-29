@@ -1,9 +1,8 @@
 # MVC
 <!--Table of Contents-->
 - MVC 란?
-    - 정의
 - MVC 처리과정
-- MVC 장단
+- MVC 특징
 
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
 ## You can answer
@@ -17,13 +16,14 @@
   * Android Architecture Pattern 중 하나로 Model, View, Controller 세 가지의 구성요소로 나뉜다.
 
 - Model
-  * 어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 비즈니스 로직을 갖고 있는 부분이며, View나 Controller에 독립적이기 때문에 재사용이 가능합니다.
+  * 어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 비즈니스 로직을 갖고 있는 부분이다.
+  * View나 Controller에 독립적이기 때문에 재사용이 가능하다.
 
 - View
-  * 사용자에게 보여지는 UI부분으로 안드로이드에서는 XML에 해당합니다.
+  * 사용자에게 보여지는 UI부분으로 안드로이드에서는 XML에 해당한다.
 
 - Controller
-  * 사용자의 입력에 따라 해당하는 모델에 따라 뷰를 선택하는 부분으로 안드로이드에서는 Activity나 Fragment에 해당합니다.
+  * 사용자의 입력에 따라 해당하는 모델에 따라 뷰를 선택하는 부분으로 안드로이드에서는 Activity나 Fragment에 해당한다.
 
 ## MVC 처리과정
   ![MVCProcess](./img/MVCProcess.PNG)
