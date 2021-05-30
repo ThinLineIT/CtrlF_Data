@@ -13,6 +13,8 @@
 - RxSwift Observable 사용의 전체적인 흐름, 구조
 <br/>
 <br/>
+
+
 ## 4. Observable 구독하기
 
 ---
@@ -105,7 +107,7 @@ example(of: "empty") {
 - 즉시 종료할 수 있는 Observable을 리턴하고 싶을 때
 - 의도적으로 0개의 값을 가지는 Observable을 리턴하고 싶을 때
 
-// 여기 직접 실행해보기<br/><br/>
+<br/><br/>
 
 ### 2. .never()
 
@@ -127,8 +129,9 @@ example(of: "never") {
 
 - 아무것도 출력되지 않는다. Completed 도 안나온다.<br/><br/>
 
-// 여기도 직접 실행해보기
+
 <br/><br/>
+
 ### 3. .range()
 
 지금까지 우리는 specific 한 요소나 값을 가지는 observable 들만 봤다.
@@ -169,6 +172,7 @@ example(of: "range") {
 
 
 <br/><br/>
+
 ## 6. Disposing 과 terminating
 
 ---
@@ -254,7 +258,7 @@ example(of: "DisposeBag") {
 
 ### 3. .create(:)
 
-<br/><br/>
+
 앞서서, 우리는 next 이벤트로 observables 을 만들었다. ( .of, .just ..)
 
 create 연산자로도 observables 를 만들 수 있다!<br/>
@@ -329,6 +333,7 @@ Disposed
 
 
 </br></br>
+
 ### 4. .deferred()
 
 - 앞에서는 observable 을 먼저 생성하고 subscribe 를 기다렸다. 하지만 subscriber 에게 새로운 observable 을 유동적으로 줄 수도 있다.
@@ -479,6 +484,7 @@ loadText(from: "Copyright")
 이렇게 실행시켜보자 !
 
 </br></br>
+
 ### Single 의 장점과 단점
 
 **장점**
@@ -492,6 +498,7 @@ loadText(from: "Copyright")
 ⇒ 따라서 Single을 사용해야 한다면 반드시 Single로 시작하도록 하고, Observable로 시작한 경우 불필요한 에러를 발행할 수 있기 때문에 가급적 지양하는 것이 좋다.
 
 </br></br>
+
 ### 2. Completable
 
 - `.completed` 또는 `.error` 만을 방출하며, 이 외 어떠한 값도 방출하지 않는다.
@@ -507,9 +514,10 @@ test(success: true)
     .disposed(by: disposeBag)
 ```
 
-다음과 같이 사용하기! //사실 다 까먹을 거 같음 ;;ㅎ
+다음과 같이 사용하기! 
 
 </br></br>
+
 ### 3. Maybe
 
 - `Single`과 `Completable`을 섞어놓은 것
