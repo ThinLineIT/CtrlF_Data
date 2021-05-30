@@ -1,12 +1,15 @@
 
 # Observable 정리 1탄
 ### RxSwift 공식 문서를 읽고 정리한 글이다. by 이지원</br></br>
+
 ## You can answer
 - Observable 개념
 - Observable 생성 방법
 - RxSwift Observable의 라이프 사이클
 <br/>
 <br/>
+
+
 ## 1. Observable 이란 ?
 
 ---
