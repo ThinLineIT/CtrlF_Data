@@ -13,9 +13,11 @@
 - RxSwift Observable 사용의 전체적인 흐름, 구조
 <br/>
 <br/>
+
 ### 1. toArray
 
 - 이름을 봐라. 뭘까? 맞다! array 로 변경해준다.<br/><br/>
+
 <img width="632" alt="_2021-05-04__11 01 49" src="https://user-images.githubusercontent.com/70083982/119273684-f5a69600-bc46-11eb-89a4-4ccb85e93846.png">
 <br/><br/>
 
@@ -79,6 +81,7 @@ completed
 - 새로운 옵져버블은 항목이 업데이트 될때마다 새로운 항목을 emit
 - 최종적으로 하나의 옵져버블로 합쳐지고 모든항목이 옵져버블을 통해 emit
 - 네트워크 요청을 구현할 때 활용
+
 <br/><br/>
 
 <img width="620" alt="_2021-05-04__11 18 00" src="https://user-images.githubusercontent.com/70083982/119273732-32728d00-bc47-11eb-8d1b-3f2ecbc1af1a.png">
@@ -95,6 +98,7 @@ FlatMap은 Observables의 emit 들을 합치기 때문에, 동시에 일어날 �
 - 최종적으로 `03`을 `flatMap`이 받아 변환시킨다.
 
 <br/><br/>
+
 ```swift
 example(of: "flatMap") {
      let disposeBag = DisposeBag()
@@ -165,6 +169,7 @@ next(22)
 
 ### 5. flatMapLatest
 <br/>
+
 - 위의 flatMap 에서 최신 것만 확인하고 싶을 때 사용!
 - 가장 최근의 항목을 방출한 옵저버블의 요소만 방출
 - 자동적으로 이전 observable을 구독해지한다.
@@ -202,12 +207,14 @@ next(22)
 - 가장 나중에 등록된 애의 변화만 추적하는 거라고 생각하면 된다. a 변경해도 무시한다!
 
 <br/><br/>
+
 ### 언제 사용할까?
 
 - flatMapLatest 는 네트워킹에서 가장 흔하게 쓰인다.
 - 사전으로 단어를 찾는 것을 생각해보자. 사용자가 각 문자 s, w, i, f, t를 입력하면 새 검색을 실행하고, 이전 검색 결과 (s, sw, swi, swif로 검색한 값)는 무시해야할 때 사용할 수 있을 것이다.
 
 <br/><br/><br/>
+
 ### 6. Buffer
 
 - periodically gather items emitted by an Observable into bundles and emit these bundles rather than emitting the items one at a time
@@ -235,6 +242,7 @@ next([8, 9])
 completed
 ```
 <br/>
+
 - 2초, count 3 이 만족되면 리턴<br/>
 
     window 연산자는 buffer 와 비슷하지만 아이템을 모아 어떤 자료구조에 넣는 것이 아니라 분리된 observable 로 emit 한다는 점이 다르다. 
@@ -243,6 +251,7 @@ The Window operator is similar to Buffer but collects items into separate Observ
 ~~맞게 해석한건지 모르겠다....~~
 
 <br/><br/><br/>
+
 ### 7. window
 
 - 최대시간, 최대갯수를 지정해 원본 옵저버블이 방출하는 항목들을 작은 단위의 옵저버블로 분해, 리턴
@@ -318,7 +327,7 @@ next(["Banana", "Book"])
 next(["Apple", "Axe"])
 completed
 ```
-<br/><br/>
+
 - word 들의 첫번째 글자로 묶은 뒤 flatMap 을 이용해 배열로 만든뒤 출력하는 모습
 
 ```swift
@@ -337,6 +346,7 @@ completed
 - 홀수 짝수로 그룹핑하는 모습
 
 <br/><br/><br/>
+
 ### 9. Scan
 
 - 기본값으로 연산을 시작
@@ -369,5 +379,3 @@ completed
 ```
 
 1 ~ 10 의 합을 출력하는 모습
-
-// 직접 해보자...
