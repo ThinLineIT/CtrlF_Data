@@ -127,7 +127,10 @@ example(of: "never") {
  }
 ```
 
-- 아무것도 출력되지 않는다. Completed 도 안나온다.<br/><br/>
+- 아무것도 출력되지 않는다. Completed 도 안나온다.
+- empty 는 item 을 emit하지 않으나 종료하지만, never 는 종료하지 않는다! 주로 production에 쓰이지 않고 테스팅에 쓰인다고 한다.
+
+<br/><br/>
 
 
 <br/><br/>
@@ -231,8 +234,7 @@ example(of: "DisposeBag") {
 
 // 2
   Observable.of("A", "B", "C")
-    .subscribe { // 3
-											print($0) }
+    .subscribe { print($0) } // 3 
     .disposed(by: disposeBag) // 4
 }
 ```
