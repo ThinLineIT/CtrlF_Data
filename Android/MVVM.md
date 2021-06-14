@@ -37,6 +37,9 @@
 
 
 ## MVVM 특징
+![MVVMPackage](./img/MVVMPackage.PNG)
+  - 특징
+    * data binding이나 Command 패턴을 이용하여 View와 ViewModel을 연결하고, View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
   - 장점
     * Model과 View 사이, ViewModel과 View 사이의 의존성이 없으므로 유닛테스트가 더 쉬워진다.
     * 각각의 부분은 독립적이기 때문에 중복되는 코드를 모듈화 할 수 있다.
@@ -49,3 +52,4 @@
 ---
 ## Reference
 - [안드로이드 아키텍처 패턴 - MVVM가 뭘까?](https://velog.io/@jojo_devstory/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%8C%A8%ED%84%B4-MVVM%EC%9D%B4-%EB%AD%98%EA%B9%8C)
+- [MVC, MVP, MVVM 예제 코드](https://github.com/rkdmf1026/AndroidArchitectureTest)
