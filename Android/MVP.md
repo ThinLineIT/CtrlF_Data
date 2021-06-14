@@ -38,6 +38,12 @@
 
 
 ## MVP 특징
+  ![MVPPackage](./img/MVPPackage.PNG)
+  - 특징
+    * Model과 View는 MVC와 거의 동일하다.
+    * Presenter는 interface로 모듈화하여 코드의 재활용도를 높인 것이 특징이다.
+
+
   - 장점
     * MVC 와는 다르게 View와 Model의 의존성이 없다.
     * Model 관련 처리들은 Presenter를 통해서 이루어지기 때문에 View는 Model에 대해 알 필요가 없다.
@@ -50,3 +56,5 @@
 ---
 ## Reference
 - [안드로이드 아키텍처 패턴 - MVP가 뭘까?](https://velog.io/@jojo_devstory/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%ED%8C%A8%ED%84%B4-MVP%EA%B0%80-%EB%AD%98%EA%B9%8C)
+
+- [MVC, MVP, MVVM 예제 코드](https://github.com/rkdmf1026/AndroidArchitectureTest)
