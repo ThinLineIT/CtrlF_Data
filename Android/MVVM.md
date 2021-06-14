@@ -33,7 +33,7 @@
   1) View로 사용자의 입력이 들어온다.
   2) View는 Command 패턴으로 View Model에 이벤트를 전달한다.
   3) View Model은 필요한 데이터를 Model에 요청하고, Model은 요청받은 데이터를 View Model에게 응답한다.
-  4) View Model은 응답받은 데이터를 가공하여 저장하고, View는 View Model과 Data Binding하여 화면을 나타낸다.
+  4) View Model은 응답받은 데이터를 가공하여 저장하고, View는 View Model을 관찰을 통해 얻은 데이터로 화면을 나타낸다.
 
 
 ## MVVM 특징
@@ -44,9 +44,8 @@
     * Model과 View 사이, ViewModel과 View 사이의 의존성이 없으므로 유닛테스트가 더 쉬워진다.
     * 각각의 부분은 독립적이기 때문에 중복되는 코드를 모듈화 할 수 있다.
 
-
   - 단점
-    * ViewModel의 초기 설계가 쉽지 않다.
+    * 기존의 다른 패턴들에 비해 추가로 만들어야 하는 클래스가 많고, 이들을 서로 연결해야줘야 하기 때문에 초기 설계가 어렵다.
     * View에 대한 처리 내용이 복잡해질수록 ViewModel도 거대해진다.
 
 ---
