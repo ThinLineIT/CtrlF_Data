@@ -34,6 +34,11 @@
   * View는 Model에서 실제 필요한 데이터를 받아와 View를 업데이트하여 화면을 나타낸다.
 
 ## MVC 특징
+![MVCPackage](./img/MVCPackage.PNG)
+  - 특징
+    * Controller에 대부분의 기능이 구현되어 있는것이 특징이다.
+
+
   - 장점
     * 안드로이드에서 구현하기 가장 쉽고 단순하며, 개발기간이 짧아진다.
     * Model과 View가 분리되어 있어 Model의 비종속성으로 인해 재사용이 가능하다.
@@ -41,8 +46,9 @@
   - 단점
     * Model과 View 사이에 의존성이 발생하여, 어플리케이션의 크기가 커지고 로직이 복잡해질수록 유지보수가 힘들어진다.
     * 시간이 지날수록 Controller에 많은 코드가 쌓여 코드 비대화로 인해 문제 발생이 가능성이 높다.
-    * Controller가 안드로에드 API에 깊게 종속되므로 유닛테스트가 어렵다.
+    * Controller가 안드로이드 API에 깊게 종속되므로 유닛테스트가 어렵다.
 
 ---
 ## Reference
 - [안드로이드 아키텍처 패턴 - MVC가 뭘까?](https://velog.io/@jojo_devstory/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%ED%8C%A8%ED%84%B4-MVC%EA%B0%80-%EB%AD%98%EA%B9%8C)
+- [MVC, MVP, MVVM 예제 코드](https://github.com/rkdmf1026/AndroidArchitectureTest)
