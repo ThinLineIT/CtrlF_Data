@@ -41,11 +41,11 @@
   ![MVPPackage](./img/MVPPackage.PNG)
   - 특징
     * Model과 View는 MVC와 거의 동일하다.
-    * Presenter는 interface로 모듈화하여 코드의 재활용도를 높인 것이 특징이다.
+    * Presenter는 interface로 모듈화하는 것이 특징이다.
 
 
   - 장점
-    * MVC 와는 다르게 View와 Model의 의존성이 없다.
+    * MVC 와는 다르게 View와 Model의 의존성이 없기 때문에 유닛테스트가 용이하다.
     * Model 관련 처리들은 Presenter를 통해서 이루어지기 때문에 View는 Model에 대해 알 필요가 없다.
 
 
