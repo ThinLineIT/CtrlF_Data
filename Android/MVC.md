@@ -37,8 +37,8 @@
 ## MVC 예제코드
   - MVC 패키지 구조
   ![MVCPackage](./img/MVCPackage.PNG)
-  &nbsp;&nbsp;
-  패키지 구조에서 보는거와 같이 MVC에서 Model은 어디에도 종속되지 않고 분리되어 있다.
+
+  &nbsp;&nbsp;패키지 구조에서 보는거와 같이 MVC에서 Model은 어디에도 종속되지 않고 분리되어 있다.
   <br>
 
 
