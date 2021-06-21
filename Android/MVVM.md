@@ -22,14 +22,14 @@
 
 - View
   * 사용자에게 보여지는 UI부분으로 안드로이드에서는 Activity나 Fragment에 해당한다.
-  * ViewModel을 관찰하고 있다가 데이터가 전달되면 사용자에게 보여준다.
+  * ViewModel을 관찰하고 있다가 데이터가 전달되면 View를 업데이트 한다
 
 - ViewModel
-  * Model과 View 사이의 매개체라는 점에서 MVP의 Presenter와 유사하지만 MVP와 다르게 View와 ViewModel은 1:n의 관계를 가질 수 있으며, 여러개의 Fragment가 하나의 ViewModel을 가질 수 있다.
-  * Model을 이용해 View에게 전달하기 좋은 데이터를 가공한다.
+  * Model과 View 사이의 매개체라는 점에서 MVP의 Presenter와 유사하지만 MVP와 다르게 View와 ViewModel은 N:M의 관계를 가질 수 있다.
+  * Model을 이용해 View에게 전달할 데이터를 가공한다.
 
 ## MVVM 처리과정
-  ![MVVMProcess](./img/MVVMProcess.PNG)
+  ![MVVMProcess](./img/MVVMProcess.png)
   ### 처리 순서
   1) View로 사용자의 입력이 들어온다.
   2) View는 View Model에 이벤트를 전달한다.
@@ -38,9 +38,9 @@
 
 ## MVVM 예제코드
 - MVVM 패키지 구조
-![MVVMPackage](./img/MVVMPackage.PNG)
-&nbsp;&nbsp;
-    View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
+![MVVMPackage](./img/MVVMPackage.png)
+
+&nbsp;&nbsp;View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
 <br>
 
 - MainActivity
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 ```
 <br>
 
-- MainViewModel
+- MainViewModel [ViewModel]
 ```Kotlin
 class MainViewModel {
     val item = ObservableField<item>()
@@ -92,7 +92,7 @@ class MainViewModel {
 ```
 <br>
 
-- activity_main.xml
+- activity_main.xml [View]
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -116,34 +116,11 @@ class MainViewModel {
                android:layout_height="wrap_content"
                android:text="@={viewModel.stationName}"/>
            </EditText>
-
-           <Button
-               android:id="@+id/btnSearch"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="right"
-               android:text="검색"
-               android:onClick="@{() -> viewModel.callItem()}">
-           </Button>
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="미세먼지 농도">
-           </TextView>
-
-           <TextView
-               android:id="@+id/pm10"
-               android:layout_width="150dp"
-               android:layout_height="wrap_content"
-               android:text="@{viewModel.item.pm10Value}">
-           </TextView>
-
-       </LinearLayout>
+           ...
 ```
   &nbsp;&nbsp; View는 Data Binding을 통해 MainViewModel을 연결 후 Observable Data인 item, stationName 변수를 관찰하게 된다.
-  &nbsp;&nbsp; 버튼 클릭 이벤트가 발생하게 되면 ViewModel의 CallItem() 함수가 실행되고, ViewModel의 item 변수에 set을 하여 업데이트 하게 된다.
-  &nbsp;&nbsp; 관찰하고 있던 ViewModel item 변수의 상태 변경을 감지하여 Data Binding 되어 있던 View를 갱신하여, 화면을 나타낸다.
+  버튼 클릭 이벤트가 발생하게 되면 ViewModel의 CallItem() 함수가 실행되고, ViewModel의 item 변수에 set을 하여 업데이트 하게 된다.
+  관찰하고 있던 ViewModel item 변수의 상태 변경을 감지하여 Data Binding 되어 있던 View를 갱신하여, 화면을 나타낸다.
 
 
 
@@ -154,7 +131,8 @@ class MainViewModel {
 
   - 단점
     * 기존의 다른 패턴들에 비해 추가로 만들어야 하는 클래스가 많고, 이들을 서로 연결해야줘야 하기 때문에 초기 설계가 어렵다.
-    * View에 대한 처리 내용이 복잡해질수록 ViewModel도 거대해진다.
+    * View에 대한 비즈니스 로직이 복잡해질수록 ViewModel도 거대해진다.
+    * 비즈니스 로직을 처리하기 위해 Android API 가 필요로 해지면, 관리가 까다로워 진다.
 
 ---
 ## Reference
