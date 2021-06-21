@@ -72,7 +72,7 @@ class MainPresenterImpl(private val mainView: MainView) : MainPresenter {
     }
 }
   ```
-  &nbsp;&nbsp; Model과 View 사이의 매개체라는 점에서 MVC의 Controller와 유사하지만, View에 직접 연결되는 대신 인터페이스를 통해 상호작용한다는 점이 다르다.
+  &nbsp;&nbsp; Model과 View 사이의 매개체라는 점에서 MVC의 Controller와 비슷하지만 View와 직접 연결되는 것이 아닌, interface로 추상화하여 제어하는 것이 특징이다
   Presenter는 View에게 UI를 표시할 방법을 직접 지시하는 것이 아니라, 표시할 내용 Model을 이용해 만들어서 전달한다.
   <br>
   - MainView & MainViewImpl & MainActivity [Presenter]
