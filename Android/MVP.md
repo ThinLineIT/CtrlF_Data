@@ -2,6 +2,7 @@
 <!--Table of Contents-->
 - MVP 란?
 - MVP 처리과정
+- MVP 예제코드
 - MVP 특징
 
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
@@ -36,18 +37,81 @@
   3) Presenter에서 필요한 데이터를 Model에 요청하고, Model은 요청된 데이터를 Presenter에 응답한다.
   4) Presenter는 View에게 데이터를 응답하고, View는 Presenter가 응답한 데이터를 이용하여 화면을 나타낸다.
 
+## MVP 예제코드
+  - MVP 패키지 구조  
+  ![MVPPackage](./img/MVPPackage.PNG)
+  &nbsp;&nbsp; 위 패키지 구조와 같이 MVP는 interface를 사용하여 모듈화 하는 것이 특징이다.
+  <br>
+
+  - MainPresenter & MainPresenterImpl
+  ```Kotlin
+  interface MainPresenter {
+    fun callItem(stationName: String)
+}
+
+class MainPresenterImpl(private val mainView: MainView) : MainPresenter {
+
+    override fun callItem(stationName :String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val info = MainService.retrofitService.listAir(
+                    BuildConfig.airKoreaKey,
+                    "json",
+                    2,
+                    1,
+                    stationName,
+                    "DAILY",
+                    1.0
+                ).body()!!.response.body.items[0]
+                mainView.showResult(info)
+            } catch (e: Exception) {
+                Log.e("network error", e.toString())
+            }
+        }
+    }
+}
+  ```
+  &nbsp;&nbsp; MVC의 Controller와 비슷하지만 View와 연결되는 것이 아닌, 단순히 interface라는 점이 특징이다.
+  &nbsp;&nbsp; Presenter는 View에게 UI를 표시할 방법을 지시하는 것이 아닌 Model을 이용해 표시할 내용을 만들고 전달만 하는 역할을 맡는다.
+  <br>
+  - MainView & MainViewImpl & MainActivity  
+  ```Kotlin
+  interface MainView {
+    fun showResult(item: item)
+}
+
+class MainViewImpl(private val binding : ActivityMainBinding) : MainView{
+    override fun showResult(item: item) {
+        binding.textTime.text = item.dataTime
+        binding.pm10.text = item.pm10Value
+        binding.pm10Grade.text = item.pm10Grade
+    }
+}
+
+  class MainActivity : AppCompatActivity() {
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val mainPresenter: MainPresenter by lazy { MainPresenterImpl(MainViewImpl(binding)) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        initListener()
+    }
+
+    private fun initListener() {
+        binding.btnSearch.setOnClickListener {
+            mainPresenter.callItem(binding.stationName.text.toString())
+        }
+    }
+}
+  ```
+  &nbsp;&nbsp; View의 interface를 구현함으로써 Presenter는 특정 View와 결합할 필요 없이 가상의 View를 통해 간단한 유닛테스트가 가능해진다.
+  <br>
 
 ## MVP 특징
-  ![MVPPackage](./img/MVPPackage.PNG)
-  - 특징
-    * Model과 View는 MVC와 거의 동일하다.
-    * Presenter는 interface로 모듈화하는 것이 특징이다.
-
-
   - 장점
     * MVC 와는 다르게 View와 Model의 의존성이 없기 때문에 유닛테스트가 용이하다.
     * Model 관련 처리들은 Presenter를 통해서 이루어지기 때문에 View는 Model에 대해 알 필요가 없다.
-
 
   - 단점
     * View와 Presenter가 1:1로 강한 의존성을 갖는다.
