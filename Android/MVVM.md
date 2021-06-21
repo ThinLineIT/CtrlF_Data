@@ -38,6 +38,7 @@
 
 ## MVVM 예제코드
   - MVVM 패키지 구조
+  
   ![MVVMPackage](./img/MVVMPackage.png)
 
   &nbsp;&nbsp;View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
