@@ -40,6 +40,7 @@
 ## MVP 예제코드
   - MVP 패키지 구조  
   ![MVPPackage](./img/MVPPackage.PNG)
+
   &nbsp;&nbsp; 위 패키지 구조와 같이 MVP는 interface를 사용하여 모듈화 하는 것이 특징이다.
   <br>
 
