@@ -2,6 +2,7 @@
 <!--Table of Contents-->
 - MVC 란?
 - MVC 처리과정
+- MVC 예제코드
 - MVC 특징
 
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
@@ -33,12 +34,52 @@
   * Controller는 Model을 나타내줄 View 선택한다.
   * View는 Model에서 실제 필요한 데이터를 받아와 View를 업데이트하여 화면을 나타낸다.
 
+## MVC 예제코드
+  - MVC 패키지 구조
+  ![MVCPackage](./img/MVCPackage.PNG)
+  &nbsp;&nbsp;
+  패키지 구조에서 보는거와 같이 MVC에서 Model은 어디에도 종속되지 않고 분리되어 있다.
+  <br>
+
+
+- MVC Controller
+```Kotlin
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnSearch.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val info = MainService.retrofitService.listAir(
+                        com.example.mvc.BuildConfig.airKoreaKey,
+                        "json",
+                        2,
+                        1,
+                        binding.stationName.text.toString(),
+                        "DAILY",
+                        1.0
+                    ).body()!!.response.body.items[0]
+                    binding.textTime.text = info.dataTime
+                    binding.pm10.text = info.pm10Value
+                    binding.pm10Grade.text = info.pm10Grade
+                } catch (e: Exception) {
+                    Log.e("network error", e.toString())
+                }
+            }
+        }
+    }
+}
+```
+&nbsp;&nbsp; Controller는 Model과 View를 서로 연결해주는 역할과 버튼 클릭과 같은 사용자의 입력을 받아 처리하는 역할까지 맡고 있다.
+&nbsp;&nbsp;Controller에 대부분의 기능이 구현되어 있는것이 특징이다.
+<br>
+
 ## MVC 특징
-![MVCPackage](./img/MVCPackage.PNG)
-  - 특징
-    * Controller에 대부분의 기능이 구현되어 있는것이 특징이다.
-
-
   - 장점
     * 안드로이드에서 구현하기 가장 쉽고 단순하며, 개발기간이 짧아진다.
     * Model과 View가 분리되어 있어 Model의 비종속성으로 인해 재사용이 가능하다.
