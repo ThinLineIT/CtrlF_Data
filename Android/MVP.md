@@ -71,8 +71,8 @@ class MainPresenterImpl(private val mainView: MainView) : MainPresenter {
     }
 }
   ```
-  &nbsp;&nbsp; MVC의 Controller와 비슷하지만 View와 연결되는 것이 아닌, 단순히 interface라는 점이 특징이다.
-  &nbsp;&nbsp; Presenter는 View에게 UI를 표시할 방법을 지시하는 것이 아닌 Model을 이용해 표시할 내용을 만들고 전달만 하는 역할을 맡는다.
+  &nbsp;&nbsp; Model과 View 사이의 매개체라는 점에서 MVC의 Controller와 유사하지만, View에 직접 연결되는 대신 인터페이스를 통해 상호작용한다는 점이 다르다.
+  &nbsp;&nbsp; Presenter는 View에게 UI를 표시할 방법을 직접 지시하는 것이 아니라, 표시할 내용 Model을 이용해 만들어서 전달한다.
   <br>
   - MainView & MainViewImpl & MainActivity  
   ```Kotlin
@@ -105,12 +105,12 @@ class MainViewImpl(private val binding : ActivityMainBinding) : MainView{
     }
 }
   ```
-  &nbsp;&nbsp; View의 interface를 구현함으로써 Presenter는 특정 View와 결합할 필요 없이 가상의 View를 통해 간단한 유닛테스트가 가능해진다.
+  &nbsp;&nbsp; View를 interface를 상속받아 구현함으로써 Presenter는 특정 View에 의존할 필요 없이 가상의 View를 통해 간단한 유닛테스트가 가능해진다.
   <br>
 
 ## MVP 특징
   - 장점
-    * MVC 와는 다르게 View와 Model의 의존성이 없기 때문에 유닛테스트가 용이하다.
+    * View와 Model 사이에 의존성이 없고, presenter와는 interface로 통신하기 때문에 유닛테스트가 용이하다.
     * Model 관련 처리들은 Presenter를 통해서 이루어지기 때문에 View는 Model에 대해 알 필요가 없다.
 
   - 단점
