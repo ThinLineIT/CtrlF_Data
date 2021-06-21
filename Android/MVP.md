@@ -30,7 +30,7 @@
   * View에게 표시할 내용(Data)만 전달하며 어떻게 보여줄지는 View가 담당한다.
 
 ## MVP 처리과정
-  ![MVPProcess](./img/MVPProcess.PNG)
+  ![MVPProcess](./img/MVPProcess.png)
   ### 처리 순서
   1) View로 사용자의 입력이 들어온다.
   2) View는 Presenter에 이벤트를 전달하며 작업을 요청한다.
@@ -39,12 +39,12 @@
 
 ## MVP 예제코드
   - MVP 패키지 구조  
-  ![MVPPackage](./img/MVPPackage.PNG)
+  ![MVPPackage](./img/MVPPackage.png)
 
   &nbsp;&nbsp; 위 패키지 구조와 같이 MVP는 interface를 사용하여 모듈화 하는 것이 특징이다.
   <br>
 
-  - MainPresenter & MainPresenterImpl
+  - MainPresenter & MainPresenterImpl [View]
   ```Kotlin
   interface MainPresenter {
     fun callItem(stationName: String)
@@ -73,9 +73,9 @@ class MainPresenterImpl(private val mainView: MainView) : MainPresenter {
 }
   ```
   &nbsp;&nbsp; Model과 View 사이의 매개체라는 점에서 MVC의 Controller와 유사하지만, View에 직접 연결되는 대신 인터페이스를 통해 상호작용한다는 점이 다르다.
-  &nbsp;&nbsp; Presenter는 View에게 UI를 표시할 방법을 직접 지시하는 것이 아니라, 표시할 내용 Model을 이용해 만들어서 전달한다.
+  Presenter는 View에게 UI를 표시할 방법을 직접 지시하는 것이 아니라, 표시할 내용 Model을 이용해 만들어서 전달한다.
   <br>
-  - MainView & MainViewImpl & MainActivity  
+  - MainView & MainViewImpl & MainActivity [Presenter]
   ```Kotlin
   interface MainView {
     fun showResult(item: item)
