@@ -37,12 +37,11 @@
   4) View Model은 응답받은 데이터를 가공하여 저장하고, View는 View Model의 관찰을 통해 얻은 데이터로 화면을 나타낸다.
 
 ## MVVM 예제코드
-- MVVM 패키지 구조
+  - MVVM 패키지 구조
+  ![MVVMPackage](./img/MVVMPackage.png)
 
-![MVVMPackage](./img/MVVMPackage.png)
-
-&nbsp;&nbsp;View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
-<br>
+  &nbsp;&nbsp;View는 ViewModel의 Observable data 변화를 감지하여 화면을 나타낸다는 특징이 있다.
+  <br>
 
 - MainActivity
 ```Kotlin
