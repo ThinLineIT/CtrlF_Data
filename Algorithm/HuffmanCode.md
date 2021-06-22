@@ -68,7 +68,7 @@ ex) 4,5단계의 그림을 참조하여 110이 주어졌을 때,
 ## BONUS
 
 ### Huffman Code pseudo코드 예시
-
+```c++
     typedef struct node{
         struct node *left; // left child
         struct node *right; // right child
@@ -88,6 +88,7 @@ ex) 4,5단계의 그림을 참조하여 110이 주어졌을 때,
         remove(PQ,r); //마지막으로 생성된 r을 PQ안에서 제거해줌(메모리 낭비 때문에)
         return r;
     }
+```
 
 ### 시간복잡도
 우선순위 큐로 heap이 사용된다면, 초기 힙를 구성하는데 O(n) 시간이 걸리고, 최솟값 제거 및 새로운 원소의 삽입등 heap 연산은 O(logn)시간이 걸린다. 반복문은 n-1번 수행되기 때문에 알고리즘 전체 수행 시간은 O(nlogn)이 된다.
