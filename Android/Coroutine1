@@ -1,0 +1,175 @@
+# Coroutine - overview
+<!--Table of Contents-->
+- Coroutine 
+    - What is a Coroutine?
+    - Why we use Coroutine?
+    - Coroutine 비동기 처리 
+-  비동기 프로그래밍 기술 
+    
+
+<!-- 어떤 질문을 대답할 수 있어야 하는지-->
+## You can answer
+- 코루틴이란 무엇이고 왜 사용하는가 ? 
+- 코루틴 외에 다른 비동기 프로그래밍 기술? 
+
+<!--Contents-->
+
+---
+## Coroutine
+### What is a Coroutine?
+        비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는
+        동시 실행 설계 패턴 (= Concurrency design pattern)
+        → 기본스레드를 block 하여 앱이 응답하지 않게 만들 수도 있는
+        long-running  작업을 관리하는 데에 도움을 줌.
+### Why we use Coroutine ?
+    1)  Lightweight : suspension(코루틴을 실행 중인 스레드를 차단하지 않는 기능) 을 지원하므로 
+    단일 스레드에서 많은 코루틴을 실행할 수 있음.
+    차단보다 메모리를 절약하면서 많은 동시 작업을 지원함.
+    → 왜 가볍다고 할까? 어떻게 동작할까?
+    
+    2) 메모리 누수 감소  : structured concurrency(구조화된 동시 실행)
+                        를 사용하여 범위 내에서 작업을 실행함
+    
+    3) cancellation  : 실행 중인 코루틴 계층 구조를 통해 자동으로 cancellation이 전달됨
+    코루틴에서 실행되는 모든 suspending 함수들은 취소 요청에 응답가능하도록 구현되어야함.
+    kotlinx.coroutines 라이브러리의 모든 suspending함수는 이런 취소요청에 대응하도록 구현되어있음.
+
+    * Structured concurrency : 동시 프로그래밍에 대한 구조적인 접근을 통해 컴퓨터 프로그램의 명확성, 품질, 개발 시간을 향상시키는 것을 목적으로 하는 프로그래밍 패러다임
+
+
+
+### Coroutine 비동기 처리 
+* 코루틴은 scope를 통해 제어범위 및 실행범위를 지정할 수 있음
+    1) Global Scope : 프로그램 어디서나 제어 동작이 가능한 기본 범위
+    2) Coroutine Scope : 특정한 목적의 Dispatcher를 지정하여 제어 및 동작이 가능한 범위  
+    
+    
+* Dispatcher  
+  Dispatcher는 코루틴을 특정 스레드에서 실행할 수 있도록 함 
+    1) Dispatcher.Default : 기본적인 백그라운드 동작
+    2) Dispatcher.IO :  I/O에 최적화 된 동작
+    3) Dispatcher.Main : UI 스레드 동작  
+    ![imgs](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FchcZQQ%2FbtqJ0paBKp9%2F2kFfC3cJT8Wajre6jBPnCk%2Fimg.jpg)
+* lauch{} , async{}
+    1) launch{} : 반환값이 없는 Job 객체
+    2) async{} : 반환값이 있는 Deffered 객체 반환
+    ```kotlin
+    val scope = CoroutineScope(Dispatcher.Default)
+    val coroutineA = scope.lauch{}
+    val coroutineB = scope.async{}
+    ```
+* ex) 
+    ```kotlin
+    import kotlinx.coroutines.*
+    
+    fun main() {
+        runBlocking {
+         val a = launch {
+         for(i in 1..5)
+        {
+        println(i)
+        delay(1000L)
+        }
+    }
+    
+        val b = async {
+            "async 종료"
+        }
+    
+        println("async 대기")
+        println(b.await())
+    
+        println("launch 대기")
+        a.join()
+        println("launch 종료")
+        }
+    }
+    ```
+    -> 결과
+
+        async 대기
+        1  
+        async 종료
+        launch 대기
+        2
+        3
+        4
+        5
+        launch 종료
+
+## Asynchronous programming (비동기 프로그래밍 기술)
+### 1. Threading
+스레드는 가장 잘 알려진 비동기 방법
+```kotlin
+fun postItem(item: Item) {
+    val token = preparePost()
+    val post = submitPost(token, item)
+    processPost(post)
+}
+
+fun preparePost(): Token {
+    // makes a request and consequently blocks the main thread
+    return token
+}
+```
+preparePost가 long-running 프로세스이므로 결과적으로 ui를 차단한다고 가정을 한다면,  
+UI가 차단되는 것을 피하기 위해서는 별도의 thread로 실행하는 것.  
+흔한 기술이지만 , 몇 가지 단점이 존재함.
+
+- 비용이 많이 드는 context switching 필요로 함
+- 실행 될 수 있는 thread가 한정적이라 서버 측에서는 병목현상이 일어날 수 있음
+- thread가 항상 사용 가능한 것이 아님 ( js와 같은 일부 플랫폼은 지원하지 않음).
+### 2. Callbacks
+```kotlin
+fun postItem(item: Item) {
+    preparePostAsync { token ->
+        submitPostAsync(token, item) { post ->
+            processPost(post)
+        }
+    }
+}
+
+fun preparePostAsync(callback: (Token) -> Unit) {
+    // make request and return immediately
+    // arrange callback to be invoked later
+}
+```
+Callback을 사용하면 한 함수를 다른 함수에 매개변수로 전달해서 프로세스가 완료되면  
+이 함수가 호출되도록 할 수 있음.   
+이는 더 좋은 솔루션처럼 느껴지지만 몇 가지 문제가 있음.
+
+- 중첩된 콜백이 어려움.  
+  일반적으로 콜백으로 사용되는 함수는 자체 콜백이 필요한 경우가 많은데  
+  이렇게 되면 중첩된 콜백이 발생하여 코드를 이해할 수 없게 됨
+- 오류 처리가 복잡함.
+### 3. Reactive Extensions
+리액티브 프로그래밍은 비동기에서 처리하기 힘든 에러 처리나 데이터 가공을 쉽게 하도록 도와줌.  
+이벤트가 콜백이 아닌 데이터의 모음으로 모델링 되기 때문.  
+데이터를 스트림(무한의 데이터 양)으로 생각하고 이런 스트림을 관찰 가능한 스트림으로 이동하도록 하는,  
+우리가 데이터에 대해 작동할 수 있는 일련의 확장을 가진 관찰자 패턴임.
+![images](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6061942d-c62a-4aeb-a50a-7a2f1e618be1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210627%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210627T041807Z&X-Amz-Expires=86400&X-Amz-Signature=6580ead632edb845c587a65f61e79489a48897ba352f5158f088e6fda4f25636&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+데이터의 흐름을 먼저 정의하고 데이터가 변경되었을 때 업데이트 해서 push하는 방식
+
+### 4. Coroutines
+코틀린의 비동기 코드 작업 방식.
+일시 중단 가능한 계산의 개념. (suspendable computation)
+```kotlin
+fun postItem(item: Item) {
+    launch {
+        val token = preparePost()
+        val post = submitPost(token, item)
+        processPost(post)
+    }
+}
+
+suspend fun preparePost(): Token {
+    // makes a request and suspends the coroutine
+    return suspendCoroutine { /* ... */ }
+}
+```
+이 코드는 main thraed를 차단하지 않고 long running 작업을 시행함.
+preparePost는 suspendable 함수라고 불리며, suspend 키워드를 앞에 붙임.
+이것은 실행, 일시중지, 특정시점에서의 재개 가 가능하다는 것을 의미함.
+---
+## Reference
+- [코루틴 공식 문서](https://kotlinlang.org/docs/async-programming.html)
