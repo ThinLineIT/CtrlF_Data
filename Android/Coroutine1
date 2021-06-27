@@ -45,12 +45,12 @@
     
     
 * Dispatcher  
-  Dispatcher는 코루틴을 특정 스레드에서 실행할 수 있도록 함 
+  Dispatcher는 코루틴의 실행을 특정 스레드로 한정짓거나, 특정 스레드 풀로 전달하거나, 스레드의 제한 없이 실행되도록 할 수 있음.
     1) Dispatcher.Default : 기본적인 백그라운드 동작
     2) Dispatcher.IO :  I/O에 최적화 된 동작
     3) Dispatcher.Main : UI 스레드 동작  
     ![imgs](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FchcZQQ%2FbtqJ0paBKp9%2F2kFfC3cJT8Wajre6jBPnCk%2Fimg.jpg)
-* lauch{} , async{}
+* coroutine builder 
     1) launch{} : 반환값이 없는 Job 객체
     2) async{} : 반환값이 있는 Deffered 객체 반환
     ```kotlin
