@@ -42,9 +42,10 @@ fun PreviewGreeting() {
 - @Composable 어노테이션을 추가하여 Composable function을 만들 수 있다.
 Composable function 내부에는 Text와 같은 함수들이 존재하고, 이를 통해 UI계층 별 요구하는 컴포넌트를 생성해준다.
 - @Preview 어노테이션을 추가하면 아래 사진과 같이 Android 기기나 에뮬레이터 없이도 IDE 내에서도 Composable function의 Preview가 가능하다.
-  [Preview]
 
-  ![PreviewEx](./img/PreviewEx.png)
+[Preview]
+
+![PreviewEx](./img/PreviewEx.png)
 
 ## Jetpack Compose 특징
 
