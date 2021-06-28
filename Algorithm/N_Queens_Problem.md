@@ -5,7 +5,6 @@
     - Example : 8-Queens Problem
 - Pseudo-code
     - queens
-    - promising
     
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
 ## You can answer
@@ -58,17 +57,19 @@
 
 ## Pseudo-code
 ### queens
-```
-※Top-level call queens(1);
-Vector<> column;
+```java
+// ※Top-level call queens(1);
+int[] column = new int[];
 
-public static void queens(index i) {
+public static void queens(int i) {
+    
     index j;
 
     if (promising(i)) {
-        if (i == n)
-            print( column[1] ... column[n] );   // 결과 출력
-        else {
+        if (i == n) {
+            for (int j = 1; j <= n; j++)
+            System.out.println(column[i]); // 결과 출력
+        } else {
             for (j = 1; j <= n; j++) {
                 column[i + 1] = j;
                 queens(i + 1);  // i = N 일때까지 증가
@@ -76,11 +77,10 @@ public static void queens(index i) {
         }
     }
 }
-```
-### promising
-```
-public static boolean promising (index i) {
-    index k; boolean switch;
+
+public static boolean promising (int i) {
+    int k; 
+    boolean switch;
 
     k = 1;
     switch = true;
