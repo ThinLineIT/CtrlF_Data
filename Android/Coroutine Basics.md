@@ -182,8 +182,17 @@ fun main() = runBlocking {
 //sampleEnd
 ```
 실행해보면 빠른시간 내에 .이 출력되는 것을 볼 수 있음. 
-이를 코루틴이 아닌 Thread로 바꾸어서 실행하게 된다면
-시간이 좀 더 걸릴 것임.
+위의 코드를 아래와 같이 Thread로 실행시켜본다면 더 많은 시간이 걸린다는 것을 알 수 있음.
+```kotlin
+fun main() = runBlocking {
+    repeat(100_000) { // launch a lot of coroutines
+        thread {
+            Thread.sleep(5000L)
+            print(".")
+        }
+    }
+}
+```
 
 ### Structured Concurrency
 ```kotlin
