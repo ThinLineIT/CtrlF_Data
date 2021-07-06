@@ -41,6 +41,7 @@ class StateExample extends React.Compoent{
         this.handleData = this.handleData.bind(this)
     }
     componentDidMount(){
+         setTimeout(this.handleData, 4000);
         // 4초 후 handleData 함수 호출
     }
     handleData(){
@@ -129,5 +130,5 @@ function App(){
 }
 export default App;
 ```
-3. 실행 결과  
+### 3. 실행 결과  
 <img src="./image/state_test.gif"></img>
