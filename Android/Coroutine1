@@ -3,17 +3,13 @@
 - Coroutine 
     - What is a Coroutine?
     - Why we use Coroutine?
-    - Coroutine 비동기 처리 
--  비동기 프로그래밍 기술 
-    
-
+    - Coroutine 비동기 처리
+  
 <!-- 어떤 질문을 대답할 수 있어야 하는지-->
 ## You can answer
-- 코루틴이란 무엇이고 왜 사용하는가 ? 
-- 코루틴 외에 다른 비동기 프로그래밍 기술? 
+- 코루틴이란 무엇이고 왜 사용하는가 ?
 
 <!--Contents-->
-
 ---
 ## Coroutine
 ### What is a Coroutine?
