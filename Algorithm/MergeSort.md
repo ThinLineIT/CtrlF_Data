@@ -56,7 +56,7 @@ void merges(int left, int right) {
 			result[k++] = arr[j++];
 		}
 	}
-	else { // 그림의 (6)번 과정
+	else {
 		while (i <= mid) {
 			result[k++] = arr[i++];
 		}
