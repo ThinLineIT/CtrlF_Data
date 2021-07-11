@@ -64,7 +64,8 @@ suspend fun doSomethingUsefulTwo(): Int {
 
 async는 launch와 개념적으로 비슷하지만 launch는 Job을 리턴하고 어떠한 결과값도 제공하지 않음.  
 async는 Deferred( non-blocking future)를 리턴함.  
-deferred value는 await()를 만나서 결과를 얻을 수 있음.
+deferred value는 await()를 이용해 결과를 얻을 수 있음.
+
 
 ### Async-style functions
 
@@ -106,7 +107,7 @@ suspend fun doSomethingUsefulTwo(): Int {
 
 ```
 비동기 기능이 있는 이 프로그래밍 스타일은 다른 프로그래밍 언어에서 인기 있는 스타일이기 때문에 여기서는 예시용으로만 제공됩니다. 
-코틀린 코루틴과 함께 이 스타일을 사용하는 것은 아래에 설명된 이유 때문에 강력히 권장되지 않습니다.
+코틀린 코루틴과 함께 매번 Global Scope를 만들어서 각자의 코루틴에서 작동하게끔 사용하는 스타일을 사용하는 것은 아래에 설명된 이유 때문에 강력히 권장되지 않습니다.
 ```
 
 일반 함수처럼 만들어서 어디서든 사용할 수 있도록 하겠다! 라는 생각에서 짤 수 있는 코드지만   
