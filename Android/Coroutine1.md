@@ -18,8 +18,7 @@
     → 기본스레드를 block 하여 앱이 응답하지 않게 만들 수도 있는
     long-running  작업을 관리하는 데에 도움을 줌.
 ### Why we use Coroutine ?
-    1)  Lightweight : suspension(코루틴을 실행 중인 스레드를 Block하지 않는 기능) 을 지원하므로 
-    하나의 스레드에서 많은 코루틴을 실행할 수 있음. 
+    1)  Lightweight : suspension(코루틴을 실행 중인 스레드를 Block하지 않는 기능) 을 지원하므로 하나의 스레드에서 많은 코루틴을 실행할 수 있음. 
     이는 쓰레드를 Block하며 Context switch 하는 것 보다 효율적임
     → 왜 가볍다고 할까? 어떻게 동작할까? -> 아래 내용과 coroutine basic.md 참고!
 
@@ -44,7 +43,7 @@
     1) Dispatcher.Default : 기본적인 백그라운드 동작
     2) Dispatcher.IO :  I/O에 최적화 된 동작
     3) Dispatcher.Main : UI 스레드 동작  
-    ![imgs](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FchcZQQ%2FbtqJ0paBKp9%2F2kFfC3cJT8Wajre6jBPnCk%2Fimg.jpg)
+    ![imgs](./img/Coroutinenonblocking.jpg)
 * coroutine builder 
     1) launch{} : 반환값이 없는 Job 객체
     2) async{} : 반환값이 있는 Deffered 객체 반환
@@ -93,7 +92,7 @@
         launch 종료
  
 * 코루틴이 Lightweight Thread인 이유? 
-![코루틴](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/118b92df-8903-42a6-8cf0-790c870046ee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210706T141708Z&X-Amz-Expires=86400&X-Amz-Signature=10bbbb35a0549f61689865dc5c8d16d8cdc8fe5269e3101309225764695db4b3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![images](./img/CoroutinelightWeight.png)
 코루틴은 task의 단위가 coroutine object로 task들은 각 coroutine에 할당되며 JVM의 Heap 영역을 차지함.  
   코틀린의 코루틴을 Stackless Coroutine이라고도 하는데, 스택이 없고 특정 스레드에 종속되는 것도 아니기 때문임.  
   따라서 프로세서에서 Context Switching이 필요하지 않기때문에 수천개의 thread 생성보다 coroutine을 생성하는 것이  
