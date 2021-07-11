@@ -18,9 +18,9 @@
     → 기본스레드를 block 하여 앱이 응답하지 않게 만들 수도 있는
     long-running  작업을 관리하는 데에 도움을 줌.
 ### Why we use Coroutine ?
-    1)  Lightweight : suspension(코루틴을 실행 중인 스레드를 차단하지 않는 기능) 을 지원하므로 
-    단일 스레드에서 많은 코루틴을 실행할 수 있음.
-    차단보다 메모리를 절약하면서 많은 동시 작업을 지원함.
+    1)  Lightweight : suspension(코루틴을 실행 중인 스레드를 Block하지 않는 기능) 을 지원하므로 
+    하나의 스레드에서 많은 코루틴을 실행할 수 있음. 
+    이는 쓰레드를 Block하며 Context switch 하는 것 보다 효율적임
     → 왜 가볍다고 할까? 어떻게 동작할까? -> 아래 내용과 coroutine basic.md 참고!
 
     2) 메모리 누수 감소  : structured concurrency(구조화된 동시 실행)를 사용하여 범위 내에서 작업을 실행함
