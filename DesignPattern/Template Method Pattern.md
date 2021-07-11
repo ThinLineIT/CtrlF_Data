@@ -15,6 +15,8 @@
 - 상위 클래스에서 정의하는 메소드를 Template Method라 하고, 하위 클래스마다 다르게 구현되어야 하는 메소드들을 Hook이라고 한다.
 - 전체적으로는 동일하지만 부분적으로 다른 코드로 구성된 메서드의 코드 중복을 최소화 할 때 유용하다.
 
+![img_Template Method](./img/img_TemplateMethod.png)
+
 ## 장단점
 - 장점
   - 중복 코드를 줄일 수 있다.
@@ -37,6 +39,8 @@
     2) 끓는 물에 홍차를 우려낸다.
     3) 홍차를 컵에 따른다.
     4) 레몬을 추가한다.
+
+![diagram_Template Method](./img/diagram_TemplateMethod.png)
 
 1) 공통으로 사용되는 메소드를 정의하고 다르게 구현해야하는 메소드는 추상 메소드로 구현한 추상 클래스 생성
 ```java
