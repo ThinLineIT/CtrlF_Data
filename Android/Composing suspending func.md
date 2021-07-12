@@ -35,6 +35,12 @@ suspend fun doSomethingUsefulTwo(): Int {
     return 29
 }
 ```
+```
+doSomethingUsefulOne
+doSomethingUsefulTwo
+The answer is 42
+Completed in 2028 ms
+```
 
 코루틴에서 일반코드와 같이 작성하게 되면 비동기로 호출할지라도 순차적으로 실행되는 것이 기본임.  
 첫 번째 중단 함수의 결과를 사용해서 두 번째 함수의 호출 여부를 결정하거나 호출 방법을 결정하는 경우에 수행함
@@ -59,7 +65,12 @@ suspend fun doSomethingUsefulTwo(): Int {
     return 29
 }
 ```
-
+```
+doSomethingUsefulOne
+doSomethingUsefulTwo
+The answer is 42
+Completed in 1056 ms
+```
 순차적으로 실행되는 것이 기본이므로 이를 다시 concurrency하게 수행하려면 명시적으로 나타내어야함. → async { }
 
 async는 launch와 개념적으로 비슷하지만 launch는 Job을 리턴하고 어떠한 결과값도 제공하지 않음.  
@@ -104,7 +115,10 @@ suspend fun doSomethingUsefulTwo(): Int {
     return 29
 }
 ```
-
+```
+The answer is 42
+Completed in 1205 ms
+```
 ```
 비동기 기능이 있는 이 프로그래밍 스타일은 다른 프로그래밍 언어에서 인기 있는 스타일이기 때문에 여기서는 예시용으로만 제공됩니다. 
 코틀린 코루틴과 함께 매번 Global Scope를 만들어서 각자의 코루틴에서 작동하게끔 사용하는 스타일을 사용하는 것은 아래에 설명된 이유 때문에 강력히 권장되지 않습니다.
@@ -137,17 +151,15 @@ fun main() {
     }
 }
 fun somethingUsefulOneAsync() = GlobalScope.async {
-    println("start, somethisUsefulOneAsync")
+    println("start, somethingUsefulOneAsync")
     doSomethingUsefulOne()
-    println("end, somethisUsefulOneAsync")
-
+    println("end, somethingUsefulOneAsync")
 }
 
 fun somethingUsefulTwoAsync() = GlobalScope.async {
-    println("start, somethisUsefulTwoAsync")
+    println("start, somethingUsefulTwoAsync")
     doSomethingUsefulTwo()
-    println("end, somethisUsefulTwoAsync")
-
+    println("end, somethingUsefulTwoAsync")
 }
 
 suspend fun doSomethingUsefulOne(): Int {
@@ -159,6 +171,13 @@ suspend fun doSomethingUsefulTwo(): Int {
     delay(3000L) // pretend we are doing something useful here, too
     return 29
 }
+```
+```
+exception
+start, somethingUsefulTwoAsync
+start, somethingUsefulOneAsync
+end, somethingUsefulTwoAsync
+end, somethingUsefulOneAsyn
 ```
 예외가 발생했을 때 어떻게 처리하는가 ?  
 -> GlobalScope에서 실행되고 있기 때문에 예외가 발생하여도 취소가 되지 않고  
@@ -189,6 +208,10 @@ suspend fun doSomethingUsefulTwo(): Int {
     delay(1000L) // pretend we are doing something useful here, too
     return 29
 }
+```
+```
+The answer is 42
+Completed in 1049 ms
 ```
 이러한 방식을 사용한다면 예외가 발생할 경우에 해당 scope에서 시작된 모든 코루틴이 취소될 것임.
 따라서 이 방식을 권장함!
