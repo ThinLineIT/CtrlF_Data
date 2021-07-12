@@ -1,4 +1,4 @@
-# Protection with PropTypes & defaultProps
+# Typechecking With PropTypes
 
 [PropTypes와 함께 하는 타입 확인](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
 
