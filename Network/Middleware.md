@@ -22,7 +22,7 @@
 
 </br>
 
-## 미들웨어(Middleware)의 종류
+## 미들웨어(Middleware)의 종류 (Hurwitz의 분류법) 
 1. 원격 프로시저 호출(Remote Procedure Call, 약칭 RPC)
 - 클라이언트가 원격에서 동작하는 프로시저를 호출하는 시스템. 동기 또는 비동기 지원.
 
