@@ -33,7 +33,7 @@
 
 </br>
 
-![클라우드 서비스 형식 이미지](.\img\Cloud_types_1.png)
+![클라우드 서비스 형식 이미지](./img/Cloud_types_1.png)
 
 ## IaaS(Infrastructure as a Service)란?
 - **서비스 제공자가 컴퓨팅 리소스를 네트워크를 통해 서비스로 제공하는 모델이다.** </br>
