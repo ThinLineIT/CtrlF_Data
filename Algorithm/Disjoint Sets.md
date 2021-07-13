@@ -74,7 +74,7 @@ for i in range(1,v+1):
     print(parent[i],end=' ')
 ```
 - 서로소 집합 알고리즘 실행 과정
-![DisjointSets_1](.\img\DisjointSets_1.png)
+![DisjointSets_1](./img/DisjointSets_1.png)
 
 - 이 알고리즘에서 유의할 점은 union 연산을 효과적으로 수행하기 위해 '부모 테이블'을 항상 가지고 있어야 한다는 점이다. 또한 루트 노드를 즉시 계산할 수 없고, 부모 테이블을 계속해서 확인하며 거슬러 올라가야 한다.
 
