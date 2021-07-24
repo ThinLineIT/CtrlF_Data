@@ -130,19 +130,19 @@ fun main() = runBlocking {
 suspend fun doWorld() = coroutineScope { // this: CoroutineScope
     launch {
         delay(2000L)
-        println("World 2")
+        println("World 1")
     }
     launch {
         delay(1000L)
-        println("World 1")
+        println("World 2")
     }
     println("Hello")
 }
 ```
 ```
 Hello
-World 1
 World 2
+World 1
 Done
 ```
 두 개의 launch{ } 내부의 코드들이 동시에 실행되서 world1 먼저 출력되고 1초 뒤에 world2 출력.  
@@ -231,7 +231,8 @@ fun main() = runBlocking {
 runBlocking의 코루틴 스코프의 자식 코루틴 스코프 내에서 launch{ }가 실행 될 수 있도록
 한다면 join()을 사용하지 않아도 World!가 찍히게 됨.
 
-// TODO : globalScope에서 join을 사용하는 경우 ? 
+* 그렇다면, 첫 번째 코드와 같이 스코프 범위가 다르고, join()을 사용할 수 있는 경우는?  
+ex) 동시에 여러 개의 네트워크 API를 호출하는 경우. 
 ---
 ## Reference
 - [코루틴 공식 가이드](https://kotlinlang.org/docs/coroutines-basics.html)
