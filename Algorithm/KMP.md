@@ -15,15 +15,21 @@
 
 ## 과정
 
-![kmp_image1](./img/kmp_image1.png)
+![kmp_image1](./img/kmp_example1.png)
+
+
 Text 문자열에서 Search 문자열을 찾는 도중 중간에서 “ABDAB” 부분까지는 일치했는데 검색어의 마지막 글자인 “B”에서 불일치가 발생했다고 가정하자.
 
 
-![kmp_image2](./img/kmp_image2.png)
+![kmp_image2](./img/kmp_example2.png)
+
+
 Search 문자열에서 “ABDABB” 중, 앞에 일치했던 “ABDAB”에서 <U>A B</U> D <U>A B</U> 이렇게 접두사 A B와 접미사 A B가 같다. A B는 접두사와 접미사가 같은 부분의 최대 길이(2)가 된다. 이보다 더 긴 접두사=접미사 는 없다.
 
 
-![kmp_image3](./img/kmp_image3.png)
+![kmp_image3](./img/kmp_example3.png)
+
+
 검색어를 굳이 처음부터 다시 검사할 필요없이 AB는 이미 일치했다고 치고 AB의 다음 글자인 D부터 검사하면 된다. 즉, “AB”를 위와 같이 걸칠 수 있다.
 
 ## 구현
@@ -54,30 +60,35 @@ vector<int> Fail(string pattern) {
 윗부분 search 배열을 search1, 아랫부분 search 배열을 search2라 하겠다.
 노란색 화살표는 search1의 텍스트 포인터(i), 초록색 포인터는 search2의 검색어 포인터(j)다.
 
+
 ![kmp_fail1](./img/kmp_fail1.png)
+
 
 search1[i]와 search2[j]가 다르므로 걸치기 작업이 필요하지만 j=0이라 search2[j]부터 배열의 앞부분에 일치하는게 없다.
 
 
 ![kmp_fail2](./img/kmp_fail2.png)
 
-search1[i]와 search2[j]가 같으므로 p[i]에 j+1을 넣어주고 i와 j를 1증가시킨다.
-
-![kmp_fail3](./img/kmp_fail3.png)
-
-search1[i]와 search2[j]가 다르므로 j를 p[j-1](p[0] = 0)으로 값을 바꾼다.
-
-![kmp_fail4](./img/kmp_fail4.png)
 
 search1[i]와 search2[j]가 다르므로 걸치기 작업이 필요하지만 j=0이라 search2[j]부터 배열의 앞부분에 일치하는게 없다.
 
-![kmp_fail5](./img/kmp_fail5.png)
+
+![kmp_fail3](./img/kmp_fail3.png)
+
 
 search1[i]와 search2[j]가 같으므로 p[i]에 j+1을 넣어주고 i와 j를 1증가시킨다.
 
-![kmp_fail6](./img/kmp_fail6.png)
 
-search1[i]와 search2[j]가 같으므로 p[i]에 j+1을 넣어주고 i가 문자열 전체를 돌았으므로 종료한다.
+![kmp_fail4](./img/kmp_fail4.png)
+
+
+search1[i]와 search2[j]가 같으므로 p[i]에 j+1을 넣어주고 i와 j를 1증가시킨다.
+
+
+![kmp_fail5](./img/kmp_fail5.png)
+
+
+search1[i]와 search2[j]가 다르므로 j를 p[j-1](p[1] = 0)으로 값을 바꾸고 i가 문자열 전체를 돌았으므로 종료한다.
 
 ``` java
 vector<int> KMP(string pattern, string text) {
@@ -106,54 +117,105 @@ vector<int> KMP(string pattern, string text) {
 
 노란색 화살표는 텍스트 포인터(i), 초록색 포인터는 검색어 포인터(j)다.
 
-![kmp_image4](./img/kmp_image4.png)
+
+![kmp_image4](./img/kmp_img1.png)
+
 
 text[i]와 search[j]가 다르므로 걸치기 작업이 필요하지만 j=0이라 search[j]부터 배열의 앞부분에 일치하는게 없다.
 
-![kmp_image5](./img/kmp_image5.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j가 1 증가한다.
+![kmp_image5](./img/kmp_img2.png)
 
-![kmp_image6](./img/kmp_image6.png)
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image6](./img/kmp_img3.png)
+
 
 위와 동일
 
-![kmp_image7](./img/kmp_image7.png)
 
-위와 동일
-
+![kmp_image7](./img/kmp_img3.5.png)
 
 
+text[i]와 search[j]가 다르므로 걸치기 작업이 진행된다. j의 값을 p[j-1](p[1] = 0)로 바꾸어 준다. 그럼 아래와 같이 search 부분이 옮겨진다.
 
-![kmp_image8](./img/kmp_image8.png)
 
-text[i]와 search[j]가 다르므로 걸치기 작업이 진행된다. j의 값을 p[j-1](p[2] = 1)로 바꾸어 준다. 그럼 아래와 같이 search 부분이 옮겨진다.
+![kmp_image8](./img/kmp_img4.png)
 
-![kmp_image9](./img/kmp_image9.png)
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image9](./img/kmp_img5.png)
+
 
 text[i]와 search[j]가 다르므로 걸치기 작업이 진행된다. j의 값을 p[j-1](p[0] = 0)로 바꾸어 준다. 그럼 아래와 같이 search 부분이 옮겨진다.
 
-![kmp_image10](./img/kmp_image10.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j가 1 증가한다.
+![kmp_image10](./img/kmp_img6.png)
 
-![kmp_image11](./img/kmp_image11.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j가 1 증가한다.
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
 
-![kmp_image12](./img/kmp_image12.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j가 1 증가한다.
+![kmp_image11](./img/kmp_img7.png)
 
-![kmp_image13](./img/kmp_image13.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j가 1 증가한다.
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
 
-![kmp_image14](./img/kmp_image14.png)
 
-text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j의 값이 search.length() - 1 이므로 해당 문자열을 찾은 것이다. 만약 뒤에 search 문자열과 일치하는 것이 존재하는지 더 보려면 j의 값을 p[j](p[5] = 2)로 바꾼 후 진행하면 된다. 그럼 아래와 같이 search 부분이 옮겨진다.
+![kmp_image12](./img/kmp_img8.png)
 
-![kmp_image15](./img/kmp_image15.png)
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image13](./img/kmp_img9.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image14](./img/kmp_img10.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image14](./img/kmp_img11.png)
+
+
+text[i]와 search[j]가 다르므로 걸치기 작업이 진행된다. j의 값을 p[j-1](p[4] = 2)로 바꾸어 준다. 그럼 아래와 같이 search 부분이 옮겨진다.
+
+
+![kmp_image14](./img/kmp_img12.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image14](./img/kmp_img13.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image14](./img/kmp_img14.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 i와 j가 1 증가한다.
+
+
+![kmp_image14](./img/kmp_img15.png)
+
+
+text[i]와 search[j]가 같으므로 걸치기 작업이 진행 안되고 j의 값이 search.length() - 1 이므로 해당 문자열을 찾은 것이다. 만약 뒤에 search 문자열과 일치하는 것이 존재하는지 더 보려면 j의 값을 p[j](p[5] = 0)로 바꾼 후 진행하면 된다. 그럼 아래와 같이 search 부분이 옮겨진다.
+
+
+![kmp_image15](./img/kmp_img16.png)
+
 
 ## Reference
 - [문자열 검색 알고리즘 : KMP 알고리즘](https://ansohxxn.github.io/algorithm/kmp/#site-nav)
