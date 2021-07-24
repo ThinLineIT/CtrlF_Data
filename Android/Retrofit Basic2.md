@@ -199,3 +199,4 @@ PATCH/members/1
 ---
 ## Reference
 - [[안드로이드] Retrofit2 기본 사용법2 -'GET/POST/PUT/DELETE'](https://jaejong.tistory.com/38?category=873924)
+- [HTTP 메소드 PUT , PATCH 차이](https://programmer93.tistory.com/39)
