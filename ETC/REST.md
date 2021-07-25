@@ -101,6 +101,12 @@
     - URI로 지정한 Resource에 대한 조작을 통일되고 한정적인 인터페이스로 수행한다.
     - HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.
       * 특정 언어나 기술에 종속되지 않는다.
+    - 다음과 같이 4가지 제약조건을 따른다.
+      1. Identification of resources : 자원이 URI로 식별되면 된다.
+      2. manipulation of resource through representation : respresentation 전송을 통해서 자원을 조작해야한다.
+      (representation이란 HTTP 메소드의 GET,PUT,POST,DELETE 등을 말한다.)
+      3. self-descriptive messages : 메시지의 내용으로 온전한 해석이 모두 가능해야 한다.
+      4. hypermedia as the engine of application state(HATEOAS) : 어플리케이션의 상태는 하이퍼링크를 이용해서 전이되어야 한다.
 
 ---
 ## Reference
