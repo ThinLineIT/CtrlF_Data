@@ -232,6 +232,14 @@ println("main: I'm tired of waiting!")
 job.cancelAndJoin() // cancels the job and waits for its completion
 println("main: Now I can quit.")
 ```
+```
+job: I'm sleeping 0 ...
+job: I'm sleeping 1 ...
+job: I'm sleeping 2 ...
+main: I'm tired of waiting!
+job: I'm running finally
+main: Now I can quit.
+```
 
 ### Timeout
 어떤 코루틴의 수행시간이 너무 길어져 허용할 수 있는 시간을 넘어섰을 경우 코루틴의 실행을 취소해야하는데,
