@@ -52,12 +52,12 @@ val backgroundExecutor = Executors.newSingleThreadScheduledExecutor()
 // Execute a task in the background thread.
 backgroundExecutor.execute {
   // Your code logic goes here.
-
-  // Update UI on the main thread
-  mainExecutor.execute {
-    // You code logic goes here.
-  }
 }
+// Update UI on the main thread
+mainExecutor.execute {
+  // You code logic goes here.
+}
+
 
 ```
 solution 2 : 생성자에 Looper를 명시적으로 지정한다. 
