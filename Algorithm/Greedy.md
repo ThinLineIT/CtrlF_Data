@@ -59,7 +59,7 @@
 
 
 ---
-### Greedy Algorithm 예시
+## Greedy Algorithm 예시
 ![1greedy1](https://user-images.githubusercontent.com/22022393/117656588-7ee3b480-b1d3-11eb-9ed1-10ea53eca229.png)
 
 
