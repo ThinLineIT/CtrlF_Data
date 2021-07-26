@@ -2,7 +2,7 @@
 <!--Table of Contents-->
 - REST API란?
 - REST API 설계 규칙
-- RESTful이란
+- RESTful이란?
 
 ## You Can Answer
 - REST API란 무엇인가?
@@ -63,14 +63,15 @@ REST API 설계 시 가장 기본적으로 지켜야 하는 항목은 다음과 
 6. 파일 확장자는 URI에 포함시키지 않는다.
     - REST API에서는 메시지 바디 내용의 포맷을 나타내기 위한 파일 확장자를 URI 안에 포함시키지 않는다.
     Accept header를 사용한다.
-  ```
-  http://test.com/test.jpg (X)
+    ```
+    http://test.com/test.jpg (X)
 
-  http://test.com/test (o)
-  GET /test HTTP/1.1
-  Host: testapi.com
-  Accept: image/jpg
-  ```
+    http://test.com/test (o)
+    GET /test HTTP/1.1
+    Host: testapi.com
+    Accept: image/jpg
+    ```
+
 ### 리소스 간의 관계 표현 방법
 REST 리소스 간에는 연관 관계가 있을 수 있고, 이런 경우 다음과 같은 표현방법으로 사용한다.
 ```
@@ -111,12 +112,7 @@ http:// restapi.example.com/sports/soccer/players/13
 |301|클라이언트가 요청한 리소스에 대한 URI가 변경 되었을 때 사용하는 응답 코드|
 |500|서버에 문제가 있을 경우 사용하는 응답 코드|
 
-
-
-
-
-
-## RESTful이란
+## RESTful이란?
   - RESTful은 일반적으로 REST 아키텍처 스타일을 따르는 웹 서비스를 나타내기 위해 사용되는 용어이다.
   - REST 아키텍처 스타일을 따르는 서비스는 RESTful이란 용어로 지칭된다.
 
