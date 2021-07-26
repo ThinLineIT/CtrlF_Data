@@ -21,7 +21,7 @@ Two Pointer 알고리즘이란 인덱스를 가리키는 두 개의 변수(포�
 
 1. left와 right가 첫번째 원소의 인덱스를 가리키도록 합니다.
 
-2. 현재 부분 합이 M보다 크거나 같다면 start를 1 증가시킵니다.
+2. 현재 부분 합이 M보다 크거나 같다면 left를 1 증가시킵니다.
 
 3. 현재 부분 합이 M보다 작다면 right를 1 증가시킵니다.
 
@@ -53,12 +53,12 @@ right = 0
 for left in range(n):
     # end를 가능한 만큼 이동시키기
     while interval_sum < m and right < n:
-        interval_sum += data[end]
+        interval_sum += data[right]
         right += 1
     # 부분합이 m일 때 카운트 증가
     if interval_sum == m:
         count += 1
-    interval_sum -= data[start]
+    interval_sum -= data[left]
 
 print(count)  # 3
 ```
