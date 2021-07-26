@@ -112,7 +112,7 @@ Activiy가 다시 생성될때 사용할 데이터를 인스턴스라고 하는�
 그리고 이 Bundle은 주로 onSaveInstanceState() 메소드에서 관리할 수 있기 때문에 화면 회전 등과 같은 과정에서 onSaveInstanceState()를 재정의,사용하여 인스턴스를 저장합니다.  
 onSaveInstanceState()는 onStop() 메서드가 호출될때 호출되며 호출 순서의 경우 버전에 따라 차이가 있습니다.  
 Bundle에 onSaveInstanceState()를 활용하여 데이터를 저장하는 과정에서 직렬화 과정을 거치는데 이는 큰 데이터 처리에는 알맞지 않으므로 한계가 있습니다. 또한, onSaveInstanceState()는 메인 쓰레드에서 동작해야하기 때문에 여기서 데이터를 저장하는데 시간을 많이 사용하게 되면 그만큼 UI에 버벅거림이 생기게 됩니다.  
-UI 상태를 유지하는데 있어서 onSaveInstanceState를 활용하는 것 뿐만 아니라 ViewModel 활용하여 유지할 수 있습니다. ViewModel의 경우 onSaveInstanceState와 다르게 메모리에 저장소 위치를 가지며 primitive 유형 및 문자열과 같은 단순하고 작은 객체만 가능하며 상대적으로 느린(직렬화/역직렬화 및 디스크 액세스 필요합니다) savedInstanceState와 다르게 복잡한 객체도 가능하고 메모리에 접근하여 상대적으로 속도가 빠릅니다. 하지만 사용자가 onFinish()를 하게 되면  유지하지 못합니다.(메모리에 저장소 위치를 가지기 때문입니다.) 그렇기 때문에 사용자가 애플리케이션을 사용하는 동안 UI 관련 데이터를 저장 및 관리하는 데 ViewModel를 활용하고 시스템이 activity 또는 Fragment 같은 UI 컨트롤러를 폐기하고 나중에 다시 생성할 때 컨트롤러의 상태를 다시 로드하는 데 필요할 때 onSaveInstanceState를 활용하여 onSaveInstanceState()와 결합하여 ViewModel 객체를 사용하는 것이 좋습니다.
+UI 상태를 유지하는데 있어서 onSaveInstanceState를 활용하는 것 뿐만 아니라 ViewModel 활용하여 유지할 수 있습니다. ViewModel의 경우 onSaveInstanceState와 다르게 메모리에 저장소 위치를 가지며 primitive 유형 및 문자열과 같은 단순하고 작은 객체만 가능하며 상대적으로 느린(직렬화/역직렬화 및 디스크 액세스 필요합니다) savedInstanceState와 다르게 복잡한 객체도 가능하고 메모리에 접근하여 상대적으로 속도가 빠릅니다. 하지만 사용자가 onFinish()를 하게 되면 유지하지 못합니다.(메모리에 저장소 위치를 가지기 때문입니다.) 그렇기 때문에 사용자가 애플리케이션을 사용하는 동안 UI 관련 데이터를 저장 및 관리하는 데 ViewModel를 활용하고 시스템이 activity 또는 Fragment 같은 UI 컨트롤러를 폐기하고 나중에 다시 생성할 때 컨트롤러의 상태를 다시 로드하는 데 필요할 때 onSaveInstanceState를 활용하여 onSaveInstanceState()와 ViewModel 객체를 결합하여 사용하는 것이 좋습니다.
 
 
 ---
