@@ -49,9 +49,9 @@ count = 0
 interval_sum = 0
 right = 0
 
-# start를 차례대로 증가시키며 반복
+# left를 차례대로 증가시키며 반복
 for left in range(n):
-    # end를 가능한 만큼 이동시키기
+    #right를 가능한 만큼 이동시키기
     while interval_sum < m and right < n:
         interval_sum += data[right]
         right += 1
