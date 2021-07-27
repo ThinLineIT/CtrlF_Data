@@ -40,7 +40,7 @@ CPU에게 할당된 총 프로세스들의 작업 시간을 여러 개로 쪼개
 2. 프로세스의 짧은 응답시간을 갖고 최악의 응답시간을 알 수 있습니다.
 3. 평균 대기시간이 상대적으로 적습니다.
 - 단점  
-1. 성능은 규정 시간량의 길이에 따라 달라지므로 작업이 비슷한 길이가 좋은데, 너무 길면 FIFO로 변하고 짧으면 문맥 교환(Context Switching) 비용이 증가합니다.
+1. 성능은 규정 시간량의 길이에 따라 달라지므로 너무 길면 FIFO로 변하고 짧으면 문맥 교환(Context Switching) 비용이 증가합니다.
 2. 하드웨어적 타이머가 필요합니다.
 3. 미완성 작업은 규정 시간량(시간 할당량)을 마친 후 프로세서를 기다리니까 평균 처리 시간이 높습니다.
 
@@ -55,6 +55,6 @@ p4-> 24 - 4 - 0
 
 ---
 ## Reference
-- [Round-Robin(RR)이란? , CPU-Scheduling들](https://jwprogramming.tistory.com/17 [개발자를 꿈꾸는 프로그래머])
+- [Round-Robin(RR)이란? , CPU-Scheduling들](https://jwprogramming.tistory.com/17)
 - [스케줄링(SCHEDULING) 알고리즘](https://reakwon.tistory.com/132)
 - [운영체제 RR(라운드 로빈)순환할당스케줄,타임퀀텀](https://jhnyang.tistory.com/158)
