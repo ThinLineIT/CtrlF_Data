@@ -31,7 +31,7 @@
   6. 진출 차수(out-degree) : 방향그래프에서 사용되는 용어로 한 노드에서 외부로 향하는 간선의 수를 뜻한다.
   7. 진입차수(in-degree) : 방향그래프에서 사용되는 용어로 외부 노드에서 들어오는 간선의 수를 뜻한다.
 
-  ![TermsOfGraph](./img/TermsofGraph.png)
+  ![TermsofGraph](img/TermsofGraph.png)
 
 ## 그래프의 구현 방법
 그래프를 구현하는 방법에는 인접행렬(Adjacency Matrix)와 인접리스트(Adjacency List)방식이 다. 두개의 구현 방식은 각각의 상반된 장단점을 가지고 있는데 대부분 인접리스트 형식을 많이들 사용한다.
