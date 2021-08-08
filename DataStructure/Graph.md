@@ -7,7 +7,6 @@
 
 ## You can answer
 - 그래프가 무엇인가요?!
-- 그래프의 장점이 뭔가요?!
 
 ---
 ## 그래프의 개념 및 사용
@@ -15,7 +14,6 @@
 ### 그래프란?
     그래프는 정점(Vertex)과 정점을 연결하는 간선(Edge)으로 이루어진 비선형 자료구조로 정점간의 관계를 표현한다.
     트리와는 달리 그래프는 정점마다 간선이 없을수도 있으며, 루트 노드, 부모와 자식 개념이 존재하지 않는다.
-
 
 ### 그래프의 사용
     그래프는 일상생활에서 연결되어있는 객체 간의 관계를 표현할 때 사용된다.
@@ -30,7 +28,6 @@
   5. 차수(degree) : 무방향 그래프에서 하나의 정점에 인접한 정점의 수를 뜻한다.
   6. 진출 차수(out-degree) : 방향그래프에서 사용되는 용어로 한 노드에서 외부로 향하는 간선의 수를 뜻한다.
   7. 진입차수(in-degree) : 방향그래프에서 사용되는 용어로 외부 노드에서 들어오는 간선의 수를 뜻한다.
-
 
 ## 그래프의 구현 방법
 그래프를 구현하는 방법에는 인접행렬(Adjacency Matrix)와 인접리스트(Adjacency List)방식이 다. 두개의 구현 방식은 각각의 상반된 장단점을 가지고 있는데 대부분 인접리스트 형식을 많이들 사용한다.
@@ -64,21 +61,21 @@
 ## 그래프의 종류
 
 ### 무방향 그래프
+![UndirectedGraph](img/UndirectedGraph.png)<br>
 무방향 그래프는 두 정점을 연결하는 간선에 방향이 없는 그래프이다.
-    ![UndirectedGraph](img/UndirectedGraph.png)
 
 ### 방향 그래프
+![directedGraph](img/directedGraph.png)<br>
 방향 그래프는 두 정점을 연결하는 간선에 방향이 존재하는 그래프이다.
 간선의 방향으로만 이동이 가능하다.
-    ![directedGraph](img/directedGraph.png)
 
 ### 가중치 그래프
+![WeightGraph](img/WeightGraph.png)<br>
 가중치 그래프는 두 정점을 이동할 때 해당 가중치만큼 비용이 드는 그래프이다.
-    ![WeightGraph](img/WeightGraph.png)
 
 ### 완전 그래프
+![CompleteGraph](img/CompleteGraph.png)<br>
 완전 그래프는 모든 정점이 간선으로 연결되어 있는 그래프이다.
-    ![CompleteGraph](img/CompleteGraph.png)
 
 ---
 ## Reference
