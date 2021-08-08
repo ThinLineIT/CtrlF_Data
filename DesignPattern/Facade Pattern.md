@@ -30,16 +30,17 @@ facade pattern을 적용하여 MobileShop 인터페이스를 구현하는 세 �
 
 ![Diagram_Facade](img/Diagram_Facade.png)
 
-<br>
 [Interface Class]
+
 ```java
 public interface MobileShop {
     public void modelNo();  
     public void price();  
 }
 ```
-<br>
+
 [Model Class]
+
 ```java
 public class Iphone implements MobileShop {  
     @Override  
@@ -75,8 +76,9 @@ public class Blackberry implements MobileShop {
     }  
 }
 ```
-<br>
+
 [Facade Class]
+
 ```java
 public class ShopKeeper {  
     private MobileShop iphone;  
@@ -105,8 +107,9 @@ public class ShopKeeper {
     }  
 }
 ```
-<br>
+
 [Operation Class]
+
 ```java
 public class FacadePatternClient {  
     public static void main(String args[]) {  
