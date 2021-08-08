@@ -65,20 +65,20 @@
 
 ### 무방향 그래프
 무방향 그래프는 두 정점을 연결하는 간선에 방향이 없는 그래프이다.
-![UndirectedGraph](img/UndirectedGraph.png)
+    ![UndirectedGraph](img/UndirectedGraph.png)
 
 ### 방향 그래프
 방향 그래프는 두 정점을 연결하는 간선에 방향이 존재하는 그래프이다.
 간선의 방향으로만 이동이 가능하다.
-![directedGraph](img/directedGraph.png)
+    ![directedGraph](img/directedGraph.png)
 
 ### 가중치 그래프
 가중치 그래프는 두 정점을 이동할 때 해당 가중치만큼 비용이 드는 그래프이다.
-![WeightGraph](img/WeightGraph.png)
+    ![WeightGraph](img/WeightGraph.png)
 
 ### 완전 그래프
 완전 그래프는 모든 정점이 간선으로 연결되어 있는 그래프이다.
-![CompleteGraph](img/CompleteGraph.png)
+    ![CompleteGraph](img/CompleteGraph.png)
 
 ---
 ## Reference
