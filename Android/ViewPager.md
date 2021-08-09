@@ -279,5 +279,6 @@ ViewPager2는 ViewPager 라이브러리의 개선된 버전으로, 향상된 기
 
 ## Reference
 
-- [Android Developers - ViewPager로 프래그먼트 간 슬라이드 ](https://developer.android.com/training/animation/screen-slide)
-
+- [Android Developers - ViewPager로 프래그먼트 간 슬라이드](https://developer.android.com/training/animation/screen-slide)
+- [Android Developers - ViewPager2로 프래그먼트 간 슬라이드](https://developer.android.com/training/animation/screen-slide-2)
+- [Android Developers - ViewPager에서 ViewPager2로 이전](https://developer.android.com/training/animation/vp2-migration)
