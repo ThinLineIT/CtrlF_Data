@@ -57,7 +57,8 @@ number1 + number2
 
 
 Int(optional)와 Int(non-optional)의 연산을 시도하면
-Value of optional type 'Int?' not unwrapped; did you mean to use '!' or '?'?
+
+ `Value of optional type 'Int?' not unwrapped; did you mean to use '!' or '?'?`
 
 위 컴파일 에러가 발생한다.
 number1은 Optional로 nil값을 가질 가능성이 있기 때문에 컴파일 단계에서 에러를 발생시킨다. 연산을 수행하기 위해서는 unwrapping 또는 binding 과정이 필요하다.
