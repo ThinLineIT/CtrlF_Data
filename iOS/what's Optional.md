@@ -20,14 +20,18 @@ Swift가 갖는 Optional이라는 개념은 변수의 값이 nil일 수 있다�
 ## 선언
 Optional 변수의 선언은 ? 키워드를 사용한다
 
-    var name: String?
+```swift
+var name: String?
+```
 
 </br>
 
 Optional의 디폴트 값은 nil로 name은 nil을 갖게 된다
 
-    var name: String // 컴파일에러
-    ar name = nil // 컴파일에러
+```swift
+var name: String // 컴파일에러
+var name = nil // 컴파일에러
+```
 
 </br>
 
@@ -44,9 +48,13 @@ nil에 대한 컴파일 에러를 통해 개발자는 nil에 대해 명확한 �
 
 Optional변수는 nil을 가질 수 있는 특별한 변수입니다. Optional 변수를 이용해서 작업할 때 Optional을 해제하는 과정이 추가적으로 필요하다.
 
-    var number1:Int? = 20
-    var number2:Int = 100
-    number1 + number2
+
+```swift
+var number1:Int? = 20
+var number2:Int = 100
+number1 + number2
+```
+
 
 Int(optional)와 Int(non-optional)의 연산을 시도하면
 Value of optional type 'Int?' not unwrapped; did you mean to use '!' or '?'?
@@ -61,12 +69,14 @@ number1은 Optional로 nil값을 가질 가능성이 있기 때문에 컴파일 
 ## Optional Unwrapping (옵셔널 해제)
 Optional Unwrapping이란 Optional 변수에서 Optional 껍데기를 벗겨내는 작업이다. 
 
-    var number1:Int? = 20
-    var number2:Int = 100
+```swift
+var number1:Int? = 20
+var number2:Int = 100
 
-    if number1 {
-        let sum = number1! + number1!
-    }
+if number1 {
+    let sum = number1! + number1!
+}
+```
 
 
 if 로 optional 변수의 값이 nil이 아닌지 판별 후 ! unwrapping 키워드를 통해 강제로 값을 꺼내온다. 만약 if로 nil 체크를 하지 않고 !을 사용한다면 런타임 오류가 발생할 수 있다.
@@ -76,12 +86,14 @@ if 로 optional 변수의 값이 nil이 아닌지 판별 후 ! unwrapping 키워
 
 ## Optional Binding (옵셔널 바인딩)
 
-    var number1:Int? = 20
-    var number2:Int = 100
+```swift
+var number1:Int? = 20
+var number2:Int = 100
 
-    if let nonOptionalNumber1 = number1 {
-        let sum = nonOptionalNumber1 + number2
-    }
+if let nonOptionalNumber1 = number1 {
+    let sum = nonOptionalNumber1 + number2
+}
+```    
 
 Optional Unwrapping과 비슷하지만 Optional 값을 새로운 상수로 받고, 그 이후로 non-optional 값을 사용한다는 차이점이 있다.
 새로 선언된 nonOptionalNumber1은 이미 non-optional로 연산에 사용할 때 ! 키워드를 사용할 필요가 없다.
@@ -97,14 +109,15 @@ Optional Chaining을 통해서 좀 더 간단하게 Optional 예외처리를 할
 swift에서 . 을 통해 클래스의 프로퍼티에 접근이 가능합다는 점을 이용한다.
 
 
-    class A {
-        var b:B?
-    }
+```swift
+class A {
+    var b:B?
+}
 
-    class B {
-        var c:String?
-    }
-
+class B {
+    var c:String?
+}
+```
 ​
 이 경우 A의 프로퍼티 b의 c에 접근할 때, b에대한 옵셔널, c에대한 옵셔널, 2번의 바인딩이 필요하다.
 이 경우에 옵셔널 체이닝을 통해 한줄로 옵셔널 바인딩이 가능하다.
@@ -112,11 +125,13 @@ swift에서 . 을 통해 클래스의 프로퍼티에 접근이 가능합다는 
 </br>
 
 
-    var a:A = A()
+```swift
+var a:A = A()
 
-    if a.b?.c {
+if a.b?.c {
 
-    }
+}
+```
 ​
 a.b?.c 를 통해 b의 옵셔널, c의 옵셔널 바인딩을 모두 처리가능하다.
 
